@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../lib/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 这里的reverseText是方法，所以要加() -->
+        {{reverseText()}}
+    </div>
+</body>
+</html>
+<script>
+    var app = new Vue({
+            el:"#app",
+            data:{
+                text:"师法魔级超"
+            },
+            methods:{
+                reverseText:function(){
+                    return this.text.split("").reverse().join("");
+                }
+            }
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>

@@ -1,0 +1,36 @@
+<!DOCTYPE html><html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>判断浏览器</title>
+<style type="text/css">
+body,td,th {
+	font-size: 12px;
+}
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+</style></head><body>
+
+<span id="J_name"></span>
+<script type="text/javascript">
+//功能:判断是否在微信中
+var isInWeixin = function(){	
+	var ua = navigator.userAgent.toLowerCase();
+　	var isWeixin = ua.indexOf('micromessenger') != -1;
+　	if (isWeixin) {
+		return true;
+	}else{
+		return false;
+	}		
+}
+//调用:
+if(isInWeixin()){
+	document.getElementById('J_name').innerHTML='在微信中';
+}else{
+	document.getElementById('J_name').innerHTML='不在微信中';
+}
+</script></body></html>

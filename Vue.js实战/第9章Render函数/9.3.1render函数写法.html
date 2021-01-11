@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../lib/vue.js"></script>
+    <style>
+        .foo {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <anchor :level="2" title="特性">特性</anchor>
+    </div>
+</body>
+</html>
+<script>
+    Vue.component('anchor', {
+        props: {
+            level: {
+                type: Number,
+                required: true
+            },
+            title: {
+                type: String,
+                default: ''
+            }
+        },
+        data () {
+            return {
+                isActive: true
+            }
+        },
+        render: function (createElement) {
+            return createElement (
+                'h' + this.level,
+                {
+                    style: {
+                        color:"red",
+                        fontSize: '30px'
+                    }
+                },
+                [
+                    createElement (
+                        'a',
+                        {
+                            domPrps: {
+                                href: '#' + this.title
+                            }
+                        },
+                        this.$slots.default
+                    ),
+                    createElement (
+                         'p',
+                        {
+                            style: {
+                                color: 'blue',
+                                background: "yellow"
+                            }
+                        },
+                        [
+                            createElement (
+                                'span',
+                                {
+                                    style: {  // style属性
+                                        color: 'blue'
+                                    },
+                                    class: { // class属性
+                                        'foo': this.isActive
+                                    },
+                                    attrs: { // 正常的html标签属性
+                                        id: 'box'
+                                    },
+                                    props: { // 组件的props
+                                        myProp: 'bar'
+                                    },
+                                    domProps: { // dom 属性
+                                        innerHTML: 'span内容'
+                                    },
+                                    on: { // 自定义事件
+                                        click: () => {
+                                            this.handleClick
+                                        }
+                                    },
+                                    // nativeOn: { // 用于监听原生事件，而不是组件使用vm.$emit触发的自定义事件                        mit
+                                    //     click: this.nativeClickHandler
+                                    // },
+                                    scopedSlots: { // 作用域 slot 匿名
+                                        default: props => h('span',props.text)
+                                    },
+                                    slot: 'name-of-slot',
+                                    // 其他特殊顶层属性
+                                    key: 'myKey',
+                                    ref: 'myRef'
+                                },
+                                'span标签'
+                            )
+                        ]
+                    )
+                ]
+            )
+        },
+        methods: {
+            handleClick () {
+                console.log("render");
+            },
+            // nativeClickHandler () {
+                
+            // }
+        }
+    })
+    var app = new Vue({
+        el: '#app'
+    })
+
+
+
+
+
+
+
+
+</script>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="module">
+	//默认导出和接收
+	//注意  默认导出 不需要用  {}
+	
+	// 1.默认导出一个函数
+	import myFn from "./test4.js";
+	
+	// 2. 默认导出多个变量
+	import myObj from "./test5.js";
+	
+	// 3. 混合导出：默认导出一个方法和导出一个变量
+	import fn,{name} from "./test6.js"
+	
+	// 1.默认导出一个函数
+	console.log(myFn())	 //默认导出一个方法
+	
+	// 2.默认导出多个变量
+	console.log(myObj.myFns()); // 导出myFns方法
+	console.log(myObj.myName);  // laotie
+	
+	// 3.混合导出：默认导出一个方法和导出一个变量
+	console.log(fn()); // 默认导出 的函数
+	console.log(name); // laowang
+	
+	
+</script>

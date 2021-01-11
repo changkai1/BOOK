@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>0</div>
+    <input type="button" value="点我呀" id="btn1"/>
+    <input type="button" value="测试" id="btn2"/>
+</body>
+</html>
+<script>
+    /*
+            节流和去抖区别
+　　    去抖和节流是不同的，因为节流虽然中间的处理函数被限制了，但是只是减少了频率，而去抖则把中间的处理函数全部过滤掉了，只执行规判定时间内的最后一个事件。
+    */
+    // 函数节流指的是预定一个函数，只有函数在大于等于执行周期时才执行，周期内调用不执行。
+    
+    var myShow = document.querySelector("div");
+    var myBtn = document.querySelector("#btn1");
+    var myBtn2 = document.querySelector("#btn2");
+
+    // myBtn.onclick = function(){
+    //     myShow.innerText = parseInt(myShow.innerText)+1;
+    // }
+    function addOne(){
+        myShow.innerText = parseInt(myShow.innerText)+1;
+    }
+    function throttle(func,wait){
+        let previous = 0;
+        return function(){
+            let now = Date.now();
+            let context = this;
+            if( now - previous >= wait){
+                func.apply(context,arguments);
+                // func()
+                // 函数执行后更新previous值
+                previous = now;
+            }
+        }
+    }
+    myBtn.onclick = throttle(addOne,1000)
+
+
+
+    function con(){
+        return function aa (){
+            console.log(this)
+            console.log(111);
+        }
+    }
+    myBtn2.onclick = con();
+    // con()()
+
+
+</script>

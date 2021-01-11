@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" href="../css/swiper.min.css" />
+		<style>
+			*{margin:0;padding:0;}
+			.swiper-container{
+				border:1px solid red;
+				width:100%;
+			}
+			.swiper-slide{
+				height:200px;
+				display:flex;
+				justify-content:center;
+				align-items:center;
+				background:#ccc;
+			}
+			.swiper-slide{
+				width:50%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="swiper-container">
+		  <div class="swiper-wrapper">
+		    <div class="swiper-slide">第1页</div>
+		    <div class="swiper-slide">第2页</div>
+		    <div class="swiper-slide">第3页</div>
+		    <div class="swiper-slide">第4页</div>
+		    <div class="swiper-slide">第5页</div>
+		    <div class="swiper-slide">第6页</div>
+		    <div class="swiper-slide">第7页</div>
+		    <div class="swiper-slide">第8页</div>
+  		</div>
+  		<div class="swiper-pagination"></div><!--分页器。如果放置在swiper-container外面，需要自定义样式。-->
+		</div>
+		
+		
+		
+		
+		<script src="../js/swiper.min.js"></script>
+		<script>
+			var mySwiper = new Swiper('.swiper-container',{
+				pagination: {
+			    el: '.swiper-pagination', //分页
+			    clickable :true //点击分页器的指示点分页器会控制Swiper切换
+			 },
+				spaceBetween:20, //滑块之间的距离
+				slidesPerView : 2, //同时显示多个滑块
+				freeMode : true,//设置为true则变为free模式，slide会根据惯性滑动可能不止一格且不会贴合。
+			})
+		</script>
+	</body>
+</html>

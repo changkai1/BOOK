@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../lib/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div :style="{fontSize:postFontSize + 'px'}">
+            <my-component v-for="item in posts" :key="item.id" :item="item" @change-fontsize="change">
+                插槽
+                <span slot="home">首页</span>
+            </my-component>
+        </div>
+        <div>
+            <input type="button" v-for="(item,index) in arrName" v-bind:value="item" @click="changehandle(index)"/>
+        </div>
+        <!-- 动态组件 component添加is属性 -->
+        <component :is="arrName[index]"></component>
+    </div>
+</body>
+</html>
+<script>
+    Vue.component("my-component",{
+        props:["item","fontSize"],
+        template:`
+        <div>
+            <slot></slot>
+            <h3>{{item.title}}</h3>
+            <Button @click="$emit('change-fontsize',10)">改变字体</Button>
+            <slot name="home"></slot>
+        </div>`
+    })
+    Vue.component("one",{
+        template:`<div>one组件</div>`
+    })
+    Vue.component("two",{
+        template:`<div>two组件</div>`
+    })
+    Vue.component("three",{
+        template:`<div>three组件</div>`
+    })
+    new Vue({
+        el:"#app",
+        data:{
+            posts: [
+                { id: 1, title: 'My journey with Vue' },
+                { id: 2, title: 'Blogging with Vue' },
+                { id: 3, title: 'Why Vue is so fun' }
+            ],
+            postFontSize:20,
+            arrName:["one","two","three"],
+            index:0
+        },
+        methods: {
+            change (num) {
+                this.postFontSize += num;
+            },
+            changehandle (index) {
+                this.index = index;
+
+            }
+        }
+    })
+
+
+
+
+
+
+
+
+
+
+
+</script>

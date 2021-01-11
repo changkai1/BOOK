@@ -1,0 +1,72 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>div的拉伸</title>
+    <style type="text/css">
+        *{padding: 0;margin: 0;}
+        #box{position: absolute;width: 150px; left:100px;height: 150px;background: pink;border: 10px solid blue;}
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+<script type="text/javascript">
+    /*
+     * 移动得距离就为点击位置坐标（clientX） - 移动后的位置坐标（clientX），
+     那么现在盒子总共的宽度就是其本身宽度（oBox.offsetWidth）加上前面坐标之差。
+     向左拉伸原理差不多，就是多加个改变盒子的位置,盒子的offsetLeft等于光标移动后的位置坐标。
+     我们对盒子就行绝对定位，获取它的left值，将它left值减去改变的距离，他就会向左边拉伸了。上下同理
+     */
+
+    var oBox = document.getElementById('box');
+    oBox.onmousedown= function(e){
+        e.preventDefault ? e.preventDefault() : e.returnValue = false;  
+        var e = e || event;
+        var x = e.pageX;
+        var oBoxL = oBox.offsetLeft;
+        var oBoxW = oBox.offsetWidth;
+        var disx = e.offsetX;
+        console.log("e.pageX",x);
+        console.log("oBoxL",oBoxL);
+        console.log("oBoxW",oBoxW);
+        console.log("dix",disx)
+        var d = "";
+        if(x < oBoxL + 10){ // x = 110
+            
+            d = 'left';
+        }else if(x > oBoxL + oBoxW -10){ //100+170-10  260
+            d = 'right';
+        }
+        console.log(1111)
+        document.onmousemove = function(e){
+            console.log(222)
+            var e = e || event;
+            var xx = e.pageX;
+            // var yy = e.clientY;
+            
+            console.log("xxe.pageX",xx)
+            if(d == 'left'){
+                oBox.style.width = oBoxW + x -xx-20 + 'px';
+                oBox.style.left = xx -(10+disx)  + 'px';
+                console.log("width",oBox.style.width)
+                console.log("left",oBox.style.left)
+
+            }else if(d == 'right'){
+                oBox.style.width = oBoxW + xx -x -20+ 'px'
+                console.log("rightWidth",oBox.style.width);
+            }
+            
+            // return false;
+        }
+        document.onmouseup = function(){
+            console.log(333)
+            document.onmousemove = null;
+            document.onmouseup = null;
+        }
+        // if(e.preventDefault){
+        //     e.preventDefault();
+        // }
+    }
+</script>
+</html>

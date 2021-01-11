@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../script/jquery-1.11.3.js"></script>
+		<style>
+			#panel{
+				position:relative;
+				width:100px;
+				height:100px;
+				background:skyblue;
+				border:1px solid red;
+				cursor:pointer;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="panel">
+			正在学习jquery
+		</div>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+			<li>6</li>
+		</ul>
+		
+	</body>
+	<script>
+						//事件委托
+//				$("ul").on("click","li",function(){
+//					console.log($(this).html());
+//				})
+		
+		
+		
+		
+		
+		
+//			1.show()和hide() 会同时改变元素的多个样式属性,高度.宽度.透明度
+//			2.fadeOut()和fadeIn() 只会修改元素的透明度
+//			3.slideUp()和slideDown() 只改变元素的高度
+			
+//			4.自定义动画animate({包含样式属性及值的映射},speed(可选),callback(可选))
+					
+//					4.1 自定义简单动画
+
+//					$("#panel").click(function(){
+//						$(this).animate({left:"500px"},3000);	
+//					})
+				
+				
+//					4.2 累加累减动画  在500px之前加上"+="或者"-="符号，表示在当前位置累加或者累减
+
+//					$("#panel").click(function(){
+//						$(this).animate({left:"+=500px"},300);	
+//					})
+		
+		
+//					4.3 多重动画
+//							4.3.1同时执行多个动画,向右移动同时放大高度
+
+//									$("#panel").click(function(){
+//										$(this).animate({left:"500px",height:"200px"},3000);
+//									})
+
+//							4.3.2按顺序执行多个动画，动画列队
+
+//								$("#panel").click(function(){
+//										$(this).animate({left:"500px"},3000)
+//													 .animate({height:"200px"},3000);
+//								})
+//								
+//								$("#panel").click(function(){
+//										$(this).animate({left:"500px"},3000,function(){
+//													$(this).animate({height:"200px"},3000);
+//										})
+//													 
+//								})
+					
+//						4.4 综合动画
+							
+								$("#panel").css("opacity","0.5"); //设置透明度为0.5；
+								$("#panel").click(function(){
+									$(this).animate({left:"400px",height:"200px",opacity:"1"},3000)
+												 .animate({top:"200px",width:"200px"},3000)
+												 .fadeOut("slow");
+								})
+		
+		
+						
+
+		
+		
+	</script>
+	
+</html>

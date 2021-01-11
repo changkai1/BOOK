@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../lib/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{message}}
+        <my-component></my-component>
+    </div>
+</body>
+</html>
+<script>
+    // 1.非父子组件通信使用 bus
+    var bus = new Vue();
+    Vue.component("my-component",{
+        template: `<button @click="handleEvent">传递事件</button>`,
+        methods: {
+            handleEvent () {
+                bus.$emit("on-message","来自my-component的信息");
+            }
+        }
+    })
+    var app = new Vue({
+        el:"#app",
+        data:{
+            message: ""
+        },
+        methods: {
+            handle () {
+                bus.$on("on-message",(msg) => {
+                    this.message = msg;
+                }) 
+            }
+        },
+        mounted () {
+            this.handle();
+        }
+    })
+
+
+
+
+
+
+
+
+
+</script>

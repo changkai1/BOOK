@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../lib/vue.js"></script>
+</head>
+<body>
+    <button v-bind:disabled="isButtonDisabled" id="btn">Button</button>
+</body>
+</html>
+<script>
+    /*
+        如果 isButtonDisabled 的值是 null、undefined 或 false，
+        则 disabled 特性甚至不会被包含在渲染出来的 <button> 元素中。
+    */
+    new Vue({
+        el:"#btn",
+        data:{
+            isButtonDisabled:true
+        }
+    })
+
+
+
+
+
+
+
+</script>

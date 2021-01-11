@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../lib/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{message}}
+        <my-component></my-component>
+    </div>
+</body>
+</html>
+<script>
+    // 1. 子组件中使用 this.$parent 可以直接访问父组件
+    Vue.component("my-component",{
+        template:`<button @click="handleEvent">$parent子组件直接修改父组件</button>`,
+        methods: {
+            handleEvent () {
+                // 访问到父组件后，可以直接修改父组件数据
+                this.$parent.message = "子组件使用$parent直接修改父组件"
+            }
+        }
+    })
+    var app = new Vue({
+        el:"#app",
+        data:{
+            message:""
+        }
+    })
+
+
+
+
+
+
+</script>

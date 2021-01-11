@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../script/jquery-1.11.3.js"></script>
+		<style>
+			#panel{
+				position:relative;
+				width:300px;
+				height:200px;
+				background:skyblue;
+				border:1px solid red;
+				cursor:pointer;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="head">锋利的jquery</div>
+		<div id="panel">
+			正在学习jquery
+		</div>
+		
+	</body>
+	<script>
+//			1.toggle()方法 可以有参数设置变化的时间    切换元素的可见状态  如果元素是可见的切换为隐藏，如果是隐藏，切换为可见
+//					$("#head").click(function(){
+//						$(this).next().toggle();  //单机标题后，内容会在可见和隐藏两种状态切换，同时会改变元素的宽高，透明度
+//					})
+				
+//			2.slideToggle()方法 可以有参数设置变化的时间  通过高度变化切换匹配元素的可见性,只改变元素的高度
+//					$("#head").click(function(){
+//						$(this).next().slideToggle();//单机标题后，内容会在可见和隐藏两种状态切换，只改变高度
+//					})
+
+//			3.fadeTo()方法 只改变元素的透明度 必须有参数
+					$("#head").click(function(){
+						$(this).next().fadeTo(2000,0.2); //点击标题后，透明度变为20%
+					})
+					
+//			4.fadeToggle()方法  通过透明度来切换匹配元素的可见性,只调整元素的透明度
+//					$("#head").click(function(){
+//						$(this).next().fadeToggle(2000);
+//					})
+
+			
+	</script>
+	
+</html>

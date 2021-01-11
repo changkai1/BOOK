@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+   <canvas id="canvas" width=200 height=150 style="border:1px dashed gray"></canvas>
+
+</body>
+</html>
+<script>
+/* 
+    cxt.beginPath(); //开始路径
+
+    1.x,y表示圆心坐标
+    2.开始角度和结束角度写法：度数*Math.PI/180;如：120*Math.PI/180 (120度)
+    3.anticlockwise:默认false,顺时针方向。true,逆时针方向
+    cxt.arc(x,y,半径,开始角度,结束角度,anticlockwise); 
+
+    cxt.closePath(); //结束路径
+    填充
+    cxt.fillStyle = "颜色值";
+    cxt.fill();
+*/
+    // 1.描边圆形  每次画描边圆都要重复一遍一下操作：开始路径、arc()画圆、结束路径、描边操作
+    function $$(id){
+        return document.getElementById(id);
+    }
+    var cnv = $$("canvas");
+    var cxt = cnv.getContext("2d");
+    // 1.1半圆
+    cxt.beginPath();
+    cxt.arc(80,80,50,0,180*Math.PI/180,true); //半圆
+    cxt.closePath();
+    cxt.fillStyle = "HotPink";
+    cxt.fill();
+    // 1.2整圆
+    cxt.beginPath();
+    cxt.arc(120,80,50,0,360*Math.PI/180,true); //整圆
+    cxt.closePath();
+    cxt.fillStyle = "HotPink";
+    cxt.fill();
+
+    // 1.3小半圆
+    // cxt.beginPath();
+    // cxt.arc(70,70,50,0,-90*Math.PI/180,true);
+    // cxt.closePath();
+    // cxt.fillStyle = "HotPink";
+    // cxt.fill();
+</script>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #country input{
+            margin:10px;
+            padding:10px;
+        }
+        #country div{
+            width:300px;
+            height:300px;
+        }
+    </style>
+</head>
+<body>
+    <div id="country">
+        <input type="button" value="中">
+        <input type="button" value="日">
+        <input type="button" value="韩">
+        <div>中国</div>
+        <div>日本</div>
+        <div>韩国</div>
+    </div>
+</body>
+</html>
+<script src="tag.js"></script>
+<script>
+    new Tag("#country");
+</script>

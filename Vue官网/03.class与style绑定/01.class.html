@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../lib/vue.js"></script>
+    <style>
+        .active {
+            color:red
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- 1.class的对象写法，可以与普通的class并存 -->
+        <div v-bind:class="{ active: isActive }">active</div>
+
+        <!-- 2.绑定的数据对象不必内联定义在模板里： -->
+        <div v-bind:class="classObject"></div>
+
+        <!-- 3.绑定计算属性返回的值 -->
+        <div v-bind:class="classComputed"></div>
+
+        <!-- 4.class的数组语法 -->
+        <div v-bind:class="[activeClass,errorClass]"></div>
+
+        <!-- 5.class的数组语法，三元表达式 -->
+        <div v-bind:class="[isActive ? activeClass : errorClass]"></div>
+
+        <!-- 6.class数组中也可以使用对象语法 -->
+        <div v-bind:class="[{active: isActive}, errorClass]"></div>
+
+        <!-- 7.使用在组件上,class不会被覆盖，对于绑定数据的class也适用 -->
+        <my-component class="outside" v-bind:class="{boo: isActive}"></my-component>
+    </div>
+</body>
+</html>
+<script>
+    Vue.component("my-component",{
+        template:`<h3 class="home join">全局组件定义的class</h3>`
+    })
+    new Vue({
+        el:"#app",
+        data:{
+            isActive:true,
+            classObject:{
+                text:true,
+                danger:true
+            },
+            activeClass:"active",
+            errorClass:"error"
+        },
+        computed:{
+            classComputed(){
+                return {
+                    num1:true,
+                    num2:true
+                }
+            }
+        }
+    })
+
+
+
+
+
+
+
+
+
+
+
+</script>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <canvas id="canvas" width=200 height=200 style="border:1px dashed gray"></canvas> -->
+    <canvas id="canvas" width=255 height=150 style="border:1px dashed gray"></canvas>
+</body>
+</html>
+<script>
+     function $$(id){
+        return document.getElementById(id);
+    }
+    var cnv = $$("canvas");
+    var cxt = cnv.getContext("2d");
+    // 1.方格调色板
+    // for(var i = 0; i < 6; i++){
+    //     for(var j = 0; j < 6; j++){
+    //         cxt.fillStyle = "rgb("+Math.floor(255-42.5*i) + "," + Math.floor(255-42.5*j) + ",0)";
+    //         cxt.fillRect(j * 25,i * 25,25,25);
+    //     }
+    // }
+
+    // 2.渐变调色板
+        var r = 255, g=0, b=0;
+        for(var i = 0; i < 150; i++){
+            if( i < 25 ){
+                g += 10;
+            }else if( i > 25 && i < 50 ){
+                r -= 10;
+            }else if( i > 50 && i < 75 ){
+                g -= 10;
+                b += 10;
+            }else if( i >= 75 && i < 100 ){
+                r += 10;
+            }else{
+                b -= 10;
+            }
+            cxt.fillStyle = "rgb(" + r + "," + g + "," + b + ")";
+            cxt.fillRect(3 * i, 0, 3, cnv.height);
+        }
+</script>

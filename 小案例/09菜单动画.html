@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.nav-trigger.jsx{
+				width: 24px;
+				height: 30px;
+				background:#FFFFFF;
+				border: none;
+				cursor: pointer;
+				padding: 0;
+				border:1px solid red;
+			}
+			.nav-trigger.jsx span.jsx-span, .nav-trigger.jsx span.jsx-span:before, .nav-trigger.jsx span.jsx-span:after{
+			  width: 100%;
+		    height: 2px;
+		    background: #000;
+		    transition: all 0.4s ease;
+			}                          
+			.nav-trigger.jsx span.jsx-span{
+			  display: block;
+		    position: relative;
+		    margin-top:50%;
+			}
+			.nav-trigger.jsx span.jsx-span:before{
+				top: -6px;
+			}
+			.nav-trigger.jsx span.jsx-span:after{
+				bottom: -6px;
+			}
+			.nav-trigger.jsx span.jsx-span:before, .nav-trigger.jsx span.jsx-span:after{
+				content: '';
+		    position: absolute;
+		    left: 0;
+			}
+		.nav-trigger.is-active.jsx span.jsx-span{
+			    background: transparent;
+		}
+		.nav-trigger.is-active.jsx span.jsx-span:before{
+			top: 0;
+			transform: rotate(225deg);
+		}
+		.nav-trigger.is-active.jsx span.jsx-span:after{
+			bottom: 0;
+		  transform: rotate(-225deg);
+		}
+			
+		
+		/*.nav-trigger.is-active.jsx:before{
+			opacity: 1;
+		    width: 20px;
+		    height: 20px;
+		}
+		.nav-trigger.is-active.jsx:before{
+				content: '';
+			  border-radius: 50%;
+		    position: absolute;
+		    top: 50%;
+		    left: 50%;
+		    background: transparent;
+		    transform: translate(-50%,-50%);
+		    transition: all 0.4s ease;
+		}*/	
+			
+			
+		</style>
+		<script src="jquery-1.8.0.js"></script>
+		<!--<link rel="stylesheet" href="index.css" />-->
+	</head>
+	<body>
+		<!--<button type="button" class="jsx-2609582219 nav-trigger">
+			<span class="jsx-2609582219"></span>
+		</button>-->
+		
+		<div class="jsx nav-trigger">
+			<span class="jsx-span"></span>
+		</div>
+		
+	</body>
+</html>
+<script>
+	$("div").click(function(){
+		if($(this).hasClass("is-active")){
+			$(this).removeClass("is-active");
+		}else{
+			$(this).addClass("is-active");
+		}
+	})
+	$("button").click(function(){
+		if($(this).hasClass("is-active")){
+			$(this).removeClass("is-active");
+		}else{
+			$(this).addClass("is-active");
+		}
+	})
+</script>

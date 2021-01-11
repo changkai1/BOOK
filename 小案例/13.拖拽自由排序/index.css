@@ -1,0 +1,115 @@
+*{
+    margin:0;
+    padding:0;
+}
+.box{
+    margin:0 auto;
+    width:1200px;
+    height:900px;
+    border:1px solid #000000;
+}
+.box .container{
+    float:left;
+    height:900px;
+    border-right:1px solid #CCCCCC;
+}
+.box .container h2{
+    text-align: center;
+}
+.box .container-left{
+    width:130px;
+}
+.box .container-left .input-btn input[type="button"]{
+    margin-top:20px;
+    margin-left:2px;
+    width:115px;
+    height:40px;
+    outline:none;
+    display:block;
+}
+.box .container-left .input-btn input.change{
+    background: #666666;
+}
+.box .container-center{
+    width:600px;
+}
+.box .container-center .preview{
+    padding:0 20px;
+}
+.box .container-center .preview .preview-list{
+    list-style: none;
+}
+.box .container-center .preview .preview-list li .required::before{
+    content: "*";
+    color:red;
+}
+.box .container-center .preview .preview-list li{
+    min-height:25px;
+}
+.box .container-center .preview .preview-list li p{
+    display: inline-block;
+    width:535px;
+}
+.box .container-center .preview .preview-list span.delete-icon{
+    width: 20px;
+    height: 20px;
+    border: 1px solid #000000;
+    display: inline-block;
+    border-radius: 50%;
+    background: #666666;
+    color: #ffffff;
+    text-align: center;
+    cursor: pointer;
+    float: right;
+}
+.box .container-right{
+    width:400px;
+    border-right:none;
+    border-right:1px solid #cccccc;
+}
+.box .container-right .edit .edit_describeText,.box .container-right .edit .edit_singleText,.box .container-right .edit .edit_moreText,.box .container-right .edit .edit_radio,.box .container-right .edit .edit_checkbox{
+    display:none;
+}
+.box .container-right .edit .edit_radio .edit_radio_options .edit_radio_circle{
+    width:10px;
+    height:10px;
+    border-radius: 50%;
+    border:1px solid #000000;
+    display:inline-block;
+}
+.box .container-right .edit .edit_radio .edit_radio_options .icon_sub,.box .container-right .edit .edit_radio .icon_add{
+    width:20px;
+    height:20px;
+    border:1px solid #000000;
+    display: inline-block;
+    border-radius: 50%;
+    background: #666666;
+    color:#ffffff;
+    text-align: center;
+    cursor: pointer;
+}
+.box .container-right .edit .edit_radio .icon_add{
+    display:block;
+    margin-left:195px;
+}
+.box .container-right .edit .edit_checkbox .edit_checkbox_options .edit_checkbox_square{
+    width:10px;
+    height:10px;
+    border:1px solid #000000;
+    display:inline-block;
+}
+.box .container-right .edit .edit_checkbox .edit_checkbox_options .icon_sub,.box .container-right .edit .edit_checkbox .icon_add{
+    width:20px;
+    height:20px;
+    border:1px solid #000000;
+    display: inline-block;
+    background: #666666;
+    color:#ffffff;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 50%;
+}
+.box .container-right .edit .edit_checkbox .icon_add{
+    display:block;
+    margin-left:195px;
+}

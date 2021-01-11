@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../script/jquery-1.11.3.js"></script>
+	</head>
+	<body>
+		<p title="选择你最喜欢的水果">你最喜欢的水果是？</p>
+		<ul>
+			<li title="苹果">苹果</li>
+			<li title="橘子">橘子</li>
+			<li title="菠萝">菠萝</li>
+		</ul>
+		<div class="box">正在学习jq</div>
+	</body>
+	
+</html>
+<script>
+//			3.2.11 遍历节点
+//				1.children() 方法  用于取得匹配元素的子元素集合  只考虑子元素(儿子辈)，不考虑任何后代元素
+//					var $body = $("body").children();
+//					var $p = $("p").children();
+//					var $ul = $("ul").children();
+//					console.log($body.length);
+//					console.log($p.length);
+//					console.log($ul.length);
+//					for(var i = 0; i < $ul.length; i++){
+//						console.log($ul[i].innerHTML);
+//					}
+
+//				2.next() 该方法用于取得匹配元素后面紧邻的   同辈  元素（一个）
+//					var $p1 = $("p").next(); //获取p元素的下一个同辈元素ul
+//					console.log($p1); 
+						
+//					nextAll() 该方法用于取得匹配元素后面  有所的   同辈  元素（多个）
+//					$("p").nextAll().css("background","blue");
+
+//				3.prev() 该方法用于取得匹配元素 前面 紧邻的   同辈  元素（一个）
+//					var $ul = $("ul").prev(); //获取ul元素的前一个同辈元素p
+//					console.log($ul);
+						
+//			    prevAll() 该方法用于取得匹配元素 前面 所有的 同辈  元素（多个）
+//					$("div").prevAll().css("background","red");
+
+//				4.siblings() 该方法用于取得匹配元素 前后所有的   同辈  元素
+//					$("ul").siblings().css("background","red");
+		
+//				5.find() 获得当前元素集合中每个元素的后代(儿子辈、孙子辈 所有)，必须有参数
+//					$("body").find("p").css("background","red");
+
+//				6.end() 结束当前链条中的最近的     筛选操作(结束的是筛选选择器)，并将匹配元素集还原为之前的状态。
+		
+//				7.parent() 方法返回被选元素的直接父元素   该方法只沿着 DOM 树向上遍历单一层级
+		
+//				8.parents() 方法返回被选元素的所有祖先元素。
+
+	</script>

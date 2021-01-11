@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../lib/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <ele :show="show" :list="list"></ele>
+        <button @click="show = !show">切换show</button>
+    </div>
+</body>
+</html>
+<script>
+    Vue.component("ele",{
+        render: function (createElement) {
+            // if (this.show) {
+            //     return createElement (
+            //         'p','show的值为true'
+            //     )
+            // } else {
+            //     return createElement (
+            //         'p','show的值为false'
+            //     )
+            // }
+            var nodes = [];
+            for (var i = 0; i < this.list.length; i++) {
+                nodes.push(createElement('p',this.list[i]));
+            }
+            return createElement('div',nodes);
+        },
+        props: {
+            show: {
+                type: Boolean
+            },
+            list: {
+                type: Array
+            }
+        }
+    })
+    var app = new Vue({
+        el: "#app",
+        data: {
+            show: false,
+            list: [
+                '《Vue.js实战》',
+                '《JavaScript高级程序设计》',
+                '《JavaScript语言精粹》'
+            ]
+        }
+    })
+
+
+
+
+
+
+
+
+
+
+
+</script>

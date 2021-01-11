@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="script/jquery-1.11.3.js"></script>
+	</head>
+	<body>
+		1<input type="checkbox" class="one" checked/>
+		2<input type="checkbox" class="two" value="two"/>
+		3<input type="checkbox" class="three"/>
+		
+		合格<input type="radio" name="one" class="box1" value="radio1"/>
+		无效<input type="radio" name="one" class="box2" value="radio2" />
+		<script>
+//			console.log($(".one").is(":checked"));
+//			console.log($(".box1").is(":checked"));
+//			console.log($(".one:checked").length); //复选框选中的个数
+
+				//也可以用这种方式判断
+//				if($(".two").attr("checked")){
+//					alert(111);
+//				}else{
+//					alert(222);
+//				};
+				
+				//对多选框和单选框使用 val()方法选中时，必须使用数组赋值
+				$(".three").attr("checked",true); //选中第三个复选框
+			
+				$(".two").val(["two"]); //选中第二个复选框，使用数组赋值
+				
+				$(".box2").val(["radio2"]);
+				
+					
+				
+		</script>
+	</body>
+</html>

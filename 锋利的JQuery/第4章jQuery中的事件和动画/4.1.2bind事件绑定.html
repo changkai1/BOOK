@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../script/jquery-1.11.3.js"></script>
+		<style>
+			.content{
+				display:none;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="panel">
+			<h5 class="head">什么是jQuery？</h5>
+			<div class="content">
+				jquery是继prototype之后又一个优秀的javascript库。
+			</div>
+		</div>
+	</body>
+	<script>
+		//bind() 事件绑定
+		
+//		$(function(){
+//			$("#panel h5.head").bind("click",function(){
+////				console.log(this); //this指的是  <h5 class="head">什么是jQuery？</h5>
+//				if($(this).next("div.content").is(":visible")){  //如果内容显示
+//					$(this).next("div.content").hide();
+//				}else{
+//					$(this).next("div.content").show();
+//				}
+//			})
+//		})
+		
+		//优化上述方法 click事件
+//		$(function(){
+//			$("#panel h5.head").bind("click",function(){
+//				var $content = $(this).next("div.content");
+//				if($content.is(":visible")){
+//					$content.hide();
+//				} else {
+//					$content.show();
+//			 }
+//			})
+//		})
+		
+		
+		//改变绑定事件为 鼠标移入 移出 事件
+//		$(function(){
+//			$("#panel h5.head").bind("mouseover",function(){
+//				$(this).next("div.content").show();
+//			});
+//			$("#panel h5.head").bind("mouseout",function(){
+//				$(this).next("div.content").hide();
+//			});
+//		})
+
+			//绑定事件的简写方式
+//		$(function(){
+//			$("#panel h5.head").mouseover(function(){
+//				$(this).next("div.content").show();
+//			});
+//			$("#panel h5.head").mouseout(function(){
+//				$(this).next("div.content").hide();
+//			});
+//		})			
+		
+		
+		
+		
+		
+		
+		
+		
+	</script>
+</html>

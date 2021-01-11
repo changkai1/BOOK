@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	var u = navigator.userAgent;
+	var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+	var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+	alert('是否是Android：'+isAndroid);
+	alert('是否是iOS：'+isiOS);
+	
+	
+	//两种方法判断android还是ios
+//	var ua = navigator.userAgent.toLowerCase();
+//	var isAndroid = ua.indexOf('android') != -1;
+//	var isIos = (ua.indexOf('iphone') != -1) || (ua.indexOf('ipad') != -1);
+
+
+
+	// 返回app
+	// var ua = navigator.userAgent.toLowerCase();
+	// var isAndroid = ua.indexOf('android') != -1;   //android
+	// var isIos = (ua.indexOf('iphone') != -1) || (ua.indexOf('ipad') != -1);  //ios
+	// // 点击底部返回按钮
+	// $("#goBack-btn").click(function(){
+	// 	goBack();
+	// })
+	// // ios和android跳转函数
+	// function goBack(){
+	// 	if(isIos){
+	// 		window.location.href = "beisai://app.huicui.me/prepage";  //返回ios  app,使用的是ios的私有协议
+	// 	}else if(isAndroid){
+	// 		// AndroidJS.back();
+	// 		huicui.back(); //返回安卓app,  方法安卓端指定
+	// 	}
+	// }
+</script>

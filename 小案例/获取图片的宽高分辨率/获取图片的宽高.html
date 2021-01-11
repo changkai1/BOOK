@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../script/jquery-1.11.3.js"></script>
+		<style>
+			width{
+				10px
+			}
+		</style>
+	</head>
+	<body>
+		<img src="images/pic1.png" alt="" id="pic1"/>
+		<img src="images/pic2.png" alt="" id="pic2"/>
+		<img src="images/pic3.png" alt="" id="pic3"/>
+	</body>
+</html>
+<script>
+			//js方法 
+//			在HTML 5中，新增加了两个用来判断图片的宽度和高度的属性，分别为.naturalWidth 和naturalHeight属性
+
+//			var img1 = document.getElementById("pic1");
+//			var img2 = document.getElementById("pic2");
+//			var img3 = document.getElementById("pic3");
+//			img1.onload = function(){
+//				var w = img1.naturalWidth;
+//				console.log("宽度1",w);
+//				var h = img1.naturalHeight;
+//				console.log("高度1",h);
+//			};
+//			img2.onload = function(){
+//				var w = img2.naturalWidth;
+//				console.log("宽度2",w);
+//				var h = img2.naturalHeight;
+//				console.log("高度2",h);
+//			};
+//			img3.onload = function(){
+//				var w = img3.naturalWidth;
+//				console.log("宽度2",w);
+//				var h = img3.naturalHeight;
+//				console.log("高度2",h);
+//			}
+	
+		//jq方法
+//			$("img").each(function(){
+//				var img = $(this);
+//				var realWidth; //真是宽度
+//				var realHeight; //真是高度
+//				img.load(function(){
+//					realWidth = this.width;
+//					console.log(realWidth);
+//					realHeight = this.height;
+//					console.log(realHeight);
+//					
+//				})
+//			})
+				$("#pic1").load(function(){
+					var realWidth = this.width;
+					console.log(realWidth);
+					var realHeight = this.height;
+					console.log(realHeight);
+				})
+				$("#pic2").load(function(){
+					var realWidth = this.width;
+					console.log(realWidth);
+					var realHeight = this.height;
+					console.log(realHeight);
+				})
+			
+			
+	
+	
+	
+	
+	
+	
+</script>

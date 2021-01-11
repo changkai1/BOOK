@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../lib/vue.js"></script>
+    <style>
+        .active{
+            color:blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- 1.对象语法 -->
+        <div :class="{'active':isActive}">class的对象语法</div>
+        <!-- 2.对象传入多个属性 -->
+        <div class="static" :class="{'active':isActive,'error':isError}">class的对象语法</div>
+        <!-- 3.绑定计算属性 -->
+        <div :class="classes">class的对象语法</div>
+    </div>
+</body>
+</html>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            isActive:true,
+            isError:false,
+            error:null
+        },
+        computed:{
+            classes(){
+                return{
+                    active:this.active && !this.error,
+                    "text-fail":this.error && this.error.type === "fail"
+                }
+            }
+        }
+    })
+
+
+
+
+
+
+
+
+
+
+</script>

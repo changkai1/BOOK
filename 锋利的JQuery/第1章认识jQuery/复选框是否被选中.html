@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+	</head>
+	<body>
+		<input type="checkbox" id="che"/>
+		<input type="password" id="pwd" disabled>
+	</body>
+</html>
+<script>
+	
+	$("#che").click(function(){
+		var ch = $("#che").is(":checked");
+//		var ch = $("#che")[0].checked;
+//		var ch = $("#che").get(0).checked;
+		console.log(ch);
+		if(ch){
+			$("#pwd").attr("disabled",false);		
+		}else{
+			$("#pwd").attr("disabled",true);		
+		}
+	})
+</script>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../lib/vue.js"></script>
+</head>
+<body>
+    <div id="myApp">
+        总价：{{prices}}
+    </div>
+</body>
+</html>
+<script>
+    new Vue({
+        el:"#myApp",
+        data:{
+            package1:[
+                {
+                    name:"iphone7",
+                    price:7199,
+                    count:2
+                },
+                {
+                    name:"ipad",
+                    price:2888,
+                    count:1
+                }
+            ],
+            package2:[
+                {
+                    name:"apple",
+                    price:3,
+                    count:5
+                },
+                {
+                    name:"banana",
+                    price:2,
+                    count:10
+                }
+            ]
+        },
+        computed:{
+            prices:function(){
+                var prices = 0;
+                for(var i = 0; i < this.package1.length; i++){
+                    prices += this.package1[i].price*this.package1[i].count;
+                }
+                for(var j = 0; j < this.package2.length; j++){
+                    prices += this.package2[j].price*this.package2[j].count;
+                }
+                return prices;
+            }
+        }
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>

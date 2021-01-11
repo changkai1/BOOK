@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../script/jquery-1.11.3.js"></script>
+		<style>
+			#panel{
+				position:relative;
+				width:300px;
+				background:skyblue;
+				border:1px solid red;
+				cursor:pointer;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="head">锋利的jquery</div>
+		<div id="panel">
+			正在学习jquery
+		</div>
+		
+	</body>
+	<script>
+
+//		1.停止元素的动画 stop(clearqueue,gotoEnd);两个参数都是可选参数Boolean
+
+				//没有参数：结束当前正在进行的动画，并立即执行列队中的下一个动画
+				//第一个参数：表示是否清空未执行完的全部动画列队(未执行完的全部动画列队)
+				//第二个参数：是否直接将正在执行的动画跳转到末状态
+				
+				//第一种情况 stop()不带参数
+//				$("#panel").hover(function(){
+//					$(this).stop().animate({height:"150px",width:"600px"},200);
+//				},function(){
+//					$(this).stop().animate({height:"50px",width:"300px"},300);
+//				})
+
+				//第二种情况  stop()有一个参数
+//				$("#panel").hover(function(){
+//					$(this).stop(true).animate({height:"550px"},2000)
+//												.animate({width:"600px"},1000);
+//				},function(){
+//					$(this).stop(true).animate({height:"50px"},2000)
+//												.animate({width:"300px"},500);
+//				})
+				
+			//第三种情况  stop()有二个参数
+//				$("#panel").hover(function(){
+//					$(this).stop(true,true).animate({height:"550px"},2000)
+//												.animate({width:"600px"},1000);
+//				},function(){
+//					$(this).stop(true,true).animate({height:"50px"},2000)
+//												.animate({width:"300px"},500);
+//				})
+
+		
+		
+//				2.判断元素是否处于动画状态
+//						if($("div").is(":animated")){ //判断元素是否处于动画状态
+//									
+//						}
+						
+//				3.延迟动画  delay() 允许将列队中的函数延时执行,既可以推迟动画列对中函数的执行,也可以用于自定义列队
+						$("#panel").css("opacity","0.5");
+						$("#panel").click(function(){
+								$(this).animate({left:"400px",height:"200px",opacity:"1"},3000)
+											 .delay(3000)
+											 .animate({top:"200px",width:"400px"},3000)
+											 .delay(2000)
+											 .fadeOut("slow");
+						})
+	</script>
+	
+</html>

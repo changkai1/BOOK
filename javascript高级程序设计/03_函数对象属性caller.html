@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../../jquery-2.1.1.min.js"></script>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    /*
+    1、函数对象的属性caller
+     这个属性中保存着调用当前函数的函数的引用，如果是在全局作用域中调用当前函数，它的值为null
+    */
+    function outer () {
+        inner()
+    }
+    function inner () {
+        alert(inner.caller)
+    }
+    outer()
+</script>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- element案例 -->
+    <el-form-item label="店铺图片">
+        <el-upload
+            class="upload-demo"
+            ref="upload"
+            :limit="1"
+            action=""
+            :on-exceed="exceed"
+            :on-change="upChange"
+            :auto-upload="false">
+            <el-button slot="trigger" size="small" type="primary">选取文件</el-button>
+            <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
+        </el-upload>
+        <img v-if="shopPic.length > 0" width="100" :src="shopPic" alt="">
+    </el-form-item>
+</body>
+</html>
+<script>
+/*
+     upChange(file){
+        console.log(this.$refs.upload)
+        this.$refs.upload.clearFiles();  // 清空图片
+        
+        // 图片转base64
+        var reader = new FileReader();
+        reader.readAsDataURL(file.raw);
+        // 转为base64
+        var _this = this;
+        reader.onload = function(){
+            _this.shopPic = this.result;
+            console.log(333,this.result);
+        }
+        console.log(222,file);
+    }
+
+
+
+
+
+
+
+
+*/
+
+
+
+
+
+
+
+</script>

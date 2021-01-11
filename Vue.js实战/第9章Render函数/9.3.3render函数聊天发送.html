@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../lib/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <ele></ele>
+        <ele>
+            <p>slot的内容</p>
+        </ele>
+    </div>
+</body>
+</html>
+<script>
+    Vue.component("ele",{
+        data () {
+            return {
+                value: '',
+                list: []
+            }
+        },
+        render: function (createElement) {
+            var _this = this;
+            // 渲染聊天的内容
+            if (this.list.length) {
+                var listNode = createElement('ul',this.list.map(function(item){
+                    return createElement('li',item);
+                }))
+            } else {
+                var listNode = createElement('p','暂无聊天内容')
+            }
+            return createElement('div',[
+                listNode,
+                createElement('input',{
+                    attrs: {
+                        placeholder: '输入内容，回车键发送'
+                    },
+                    style: {
+                        width: '200px'
+                    },
+                    on: {
+                        keyup: function (event) {
+                            if (event.keyCode !== 13) {
+                                return;
+                            } else {
+                                // 添加输入的内容
+                                _this.list.push(event.target.value);
+                                // 清空输入框
+                                event.target.value = '';
+                            }
+                        }
+                    }
+                })
+            ])
+        }
+    })
+    new Vue({
+        el:"#app"
+    })
+
+
+
+
+
+
+
+
+
+
+</script>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../script/jquery-1.11.3.js"></script>
+		<style>
+			#menu{
+				width:300px;
+			}
+			.has_children{
+				background:#555;
+				color:#fff;
+				cursor:pointer;
+			}
+			div{
+				padding:0;
+				margin:10px 0;			
+			}
+			div a{
+					background:#888;
+					display:none;
+					float:left;
+					width:300px;
+				}
+		</style>
+	</head>
+	<body>
+		<div id="menu">
+			<div class="has_children">
+				<span>第一章</span>
+				<a>1.1javascript库</a>
+				<a>1.2</a>
+				<a>1.3</a>
+				<a>1.4</a>
+			</div>
+			<div class="has_children">
+				<span>第二章</span>
+				<a>2.1</a>
+				<a>2.2</a>
+				<a>2.3</a>
+				<a>2.4</a>
+			</div>
+			<div class="has_children">
+				<span>第三章</span>
+				<a>3.1</a>
+				<a>3.2</a>
+				<a>3.3</a>
+				<a>3.4</a>
+			</div>
+		</div>
+		
+		<script>
+			$(".has_children").click(function(){
+				$(this).addClass("highlight")  //为当前的元素增加一个类名
+					.children("a").show().end()  //将子节点的a元素显示出来并重新定位到上次操作的u元素
+					.siblings().removeClass("highlight") //获取兄弟元素，并去掉他们的highlight类
+					.children("a").hide();  //将兄弟元素下的a全部隐藏
+			})
+		</script>
+	</body>
+</html>

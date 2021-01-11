@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>What you buy</h1>
+    <p title="a gentle reminder">Dont forget to buy this stuff</p>
+    <p>This is just a test</p>
+    <ul id="purchases">
+        <li>A tin of beas</li>
+        <li class="sale">Cheese</li>
+        <li class="sale important">Milk</li>
+        <li class="sale import">nihao</li>
+    </ul>
+</body>
+</html>
+<script>
+    // getAttribute  获取属性值
+    var oP = document.getElementsByTagName("p");
+    for(var i = 0; i < oP.length; i++){
+        var title_text = oP[i].getAttribute("title");
+        if( title_text != null ){
+            // alert(title_text);
+        }
+    }
+
+
+    // setAttribute更改属性
+    var _title = document.getElementById("purchases");
+    _title.setAttribute("title","hahaha");
+    // alert(_title.getAttribute("title"))
+
+
+
+
+
+
+</script>

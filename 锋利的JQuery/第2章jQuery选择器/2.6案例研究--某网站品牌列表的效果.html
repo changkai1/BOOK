@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../script/jquery-1.11.3.js"></script>
+		<style>
+			*{margin:0;padding:0;}
+			.SubCategoryBox{
+				width:800px;
+				height:500px;
+				border:2px solid blue;
+				margin:100px;
+			}
+			.SubCategoryBox ul li{
+				float:left;
+				list-style: none;
+				margin-right:50px;
+				line-height:50px;
+			}
+			.SubCategoryBox ul li a{
+				text-decoration:none;
+			}
+			.SubCategoryBox ul .promoted a{
+				color:red;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="SubCategoryBox">
+			<ul>
+				<li><a href="#">佳能(30440)</a></li>
+				<li><a href="#">索尼(27220)</a></li>
+				<li><a href="#">三星(20808)</a></li>
+				<li><a href="#">尼康(17821)</a></li>
+				<li><a href="#">松下(12289)</a></li>
+				<li><a href="#">卡西欧(8242)</a></li>
+				<li><a href="#">富士(14894)</a></li>
+				<li><a href="#">柯达(9520)</a></li>
+				<li><a href="#">宾得(2195)</a></li>
+				<li><a href="#">理光(4114)</a></li>
+				<li><a href="#">奥林巴斯(12205)</a></li>
+				<li><a href="#">明基(1466)</a></li>
+				<li><a href="#">爱国者(3091)</a></li>
+				<li><a href="#">其他品牌相机(7275)</a></li>
+			</ul>
+			<div class="showmore">
+				<a href="more.html"><span>显示全部品牌</span></a>
+			</div>
+		</div>
+		
+		<script>
+			$(function(){
+				var $category = $("ul li:gt(5):not(:last)"); //获取索引值大于5的集合，除去最后一条
+				$category.hide(); //隐藏获取到的元素
+				$(".showmore > a").click(function(){
+					if($category.is(":visible")){ //如果没有隐藏
+						$category.hide(); //隐藏的元素
+						$(".showmore a span").text("显示全部品牌");
+						$("ul li").removeClass("promoted");
+						return false; //组织超链接跳转			
+					}else{
+						$category.show(); //显示隐藏的元素
+						$(".showmore a span").text("精简显示品牌");
+						$("ul li").filter(":contains('佳能'),:contains('尼康'),:contains('奥林巴斯')")
+											.addClass("promoted"); //添加高亮样式
+						return false; //组织超链接跳转	
+					}
+				})
+			})
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

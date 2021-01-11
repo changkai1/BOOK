@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../lib/vue.js"></script>
+    <style>
+        .one {
+            background:red;
+            height:300px;
+            width:300px;
+        }
+        .two {
+            background:yellow;
+            height:200px;
+            width:200px;
+        }
+        .three {
+            background:green;
+            height:100px;
+            width:100px;
+        }
+        .four {
+            background:pink;
+            height:200px;
+            width:200px;
+        }
+        .five {
+            background:blue;
+            height:100px;
+            width:100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="one" @click.capture="one"> <!-- 3/ .capture 当有冒泡发生时，该修饰符的dom先执行 -->
+            one
+            <div class="two" @click="two">
+                two
+                <div class="three" @click.stop="three"> <!-- 1/.stop阻止事件冒泡 -->
+                    three
+                </div>
+            </div>
+        </div>
+        <!-- 2/ .prevent 阻止浏览器的默认行为  阻止超链接跳转 -->
+        <a href="http://www.baidu.com" @click.prevent="skip">百度</a>
+
+        <!-- 4/ .self 只有点击four时才触发,避免时间冒泡 -->
+        <div class="four" @click.self="four">
+            four
+            <div class="five" @click="five">
+                five
+            </div>
+        </div>
+
+        <!-- 5/ .once按钮只能触发一次 -->
+        <input type="button" @click.once="btn" value="按钮触发一次">
+    </div>
+</body>
+</html>
+<script>
+    /*
+        事件修饰符
+            1、 .stop     防止事件冒泡，由内到外        等同于JavaScript中的event.stopPropagation()
+            2、 .prevent  阻止浏览器默认行为            等同于JavaScript中的event.preventDefault()
+            3、 .capture  捕获冒泡，即有冒泡发生时，有该修饰符的dom元素会先执行，如果有多个，从外到内依次执行，然后再按自然顺序执行触发的事件。
+            4、 .self     将事件绑定到自身，只有自身才能触发，通常用于避免冒泡事件的影响
+            5、 .once     设置事件只能触发一次，比如按钮的点击等
+
+            v-on:click.prevent.self 会阻止所有的点击，
+            v-on:click.self.prevent 只会阻止对元素自身的点击。
+    */
+    new Vue({
+        el:"#app",
+        data:{
+
+        },
+        methods:{
+            three(){
+                console.log(333);
+            },
+            two(){
+                console.log(222);
+            },
+            one(){
+                console.log(111);
+            },
+            skip(){
+                alert("阻止跳转")
+            },
+            four(){
+                console.log(444);
+            },
+            five(){
+                console.log(555);
+            },
+            btn(){
+                console.log("点击按钮触发一次")
+            }
+        }
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+</script>

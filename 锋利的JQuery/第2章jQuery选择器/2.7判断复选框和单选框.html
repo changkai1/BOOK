@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../script/jquery-1.11.3.js"></script>
+	</head>
+	<body>
+		1<input type="checkbox" class="one" checked/>
+		2<input type="checkbox" />
+		3<input type="checkbox" />
+		
+		合格<input type="radio" name="one" class="box1"/ checked>
+		无效<input type="radio" name="one"/>
+		<script>
+			console.log($(".one").is(":checked"));
+			console.log($(".box1").is(":checked"));
+			console.log($(".one:checked").length); //复选框选中的个数
+		</script>
+	</body>
+</html>

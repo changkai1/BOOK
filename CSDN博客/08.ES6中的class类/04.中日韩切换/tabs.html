@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #country input,#news input{
+            margin:10px;
+            padding:10px;
+        }
+        #country div,#news div{
+            width:300px;
+            height:300px;
+            
+        }
+    </style>
+</head>
+<body>
+    <div id="country">
+        <input type="button" value="中">
+        <input type="button" value="日">
+        <input type="button" value="韩">
+        <div>中国</div>
+        <div>日本</div>
+        <div>韩国</div>
+    </div>
+
+    <div id="news">
+        <input type="button" value="娱乐">
+        <input type="button" value="财经">
+        <input type="button" value="体育">
+        <div>娱乐</div>
+        <div>财经</div>
+        <div>体育</div>
+    </div>
+
+
+<script src="tags.js"></script>
+<script>
+    new Tag({
+        el:"#country",
+        index:2,
+        colorArr:["red","green","blue"]
+    });
+    var tag = new strongTag({
+        el:"#news",
+        index:2,
+        colorArr:["black","pink","purple"],
+        s:5
+    });
+
+</script>
+</body>
+</html>

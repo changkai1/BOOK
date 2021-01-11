@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../script/jquery-1.11.3.js"></script>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		<div>
+			saS
+		</div>
+		<button>按钮</button>
+	</body>
+	<script>
+		//bind()的多个用法  
+//			1.绑定多个事件类型
+					//鼠标移入class切换为over，移出时切换为原来的值
+//					$("div").bind("mouseover mouseout",function(){
+//						$(this).toggleClass("over");
+//					})
+		
+//			2.添加时间命名空间,便于管理
+//				$("div").bind("click.plugin",function(){
+//					$("body").append("<p>click事件</p>");
+//				})
+//				
+//				$("div").bind("mouseover.plugin",function(){
+//					$("body").append("<p>mouseover事件</p>");
+//				})
+//				
+//				$("div").bind("dblclick",function(){
+//					$("body").append("<p>dblclick事件</p>");
+//				})
+//			
+//				$("button").click(function(){
+//					$("div").unbind(".plugin"); //plugin的命名空间被删除，不在命名空间的事件依然存在
+//				})
+		
+//			3.相同的事件名称,不同命名空间执行的方法
+//			$(function(){
+//				$("div").bind("click",function(){
+//					$("body").append("<p>click事件</p>");
+//				})
+//				
+//				$("div").bind("click.plugin",function(){
+//					$("body").append("<p>click.plugin事件</p>");
+//				})
+//				
+//				$("button").click(function(){
+//					$("div").trigger("click!"); //目前没效果，trigger("click!")后面的感叹号的作用是匹配所有不包含在命名空间中的click方法
+//				})
+//			})
+				
+	</script>
+</html>

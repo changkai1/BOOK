@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="script/jquery-1.11.3.js"></script>
+	</head>
+	<body>
+		<div id="J-box">
+			<input type="button" value="显示" class="J-btn-show" _name="hehe" _id="101"/>
+			<input type="button" value="删除" class="J-btn-del" _name="hehe" _id="101"/> 
+			
+			<input type="button" value="显示" class="J-btn-show" _name="xixi" _id="201"/>
+			<input type="button" value="删除" class="J-btn-del" _name="xixi" _id="201"/>
+		</div>
+	</body>
+</html>
+<script>
+			//第一种方式
+			
+//				function saveMemberInfo(){
+//					console.log("saveMemberInfo...");
+//				}
+//				//调用函数
+//				saveMemberInfo();
+
+
+//=====================================================
+
+
+			//第二种方式
+//			var saveMemberInfo = function(){
+//				console.log("saveMemberInfo...")
+//			}
+//			//调用函数
+//			saveMemberInfo();
+
+
+//===========================================================
+
+
+			//第三种方式
+//			var _G = {
+//				saveMemberInfo:function(){
+//					console.log("saveMemberInfo.....");
+//				}
+//			}
+//			//调用
+//			_G.saveMemberInfo();
+
+
+//============================================================
+
+
+		//第四种方式
+//		var _G = function(){};
+//		_G.prototype.saveMemberInfo = function(){
+//			console.log("saveMemberInfo......");
+//			var self = this;
+//			console.log(111,self); //这里的this指向的是g
+//		}
+//		var g = new _G();
+//		console.log(222,g);
+//		//调用
+//		g.saveMemberInfo();
+		
+			
+//====================================================================
+
+		//第五种方式
+//		function memberInfo(){
+//			this.id = 0;
+//			this.name = "";
+//		}
+//		memberInfo.prototype.showMember = function(){
+//			var self = this;
+//			console.log(11,self);
+//			console.log("show:",self.id);
+//			console.log("show:",self.name);
+//		}
+//		memberInfo.prototype.delMember = function(){
+//			var self = this;
+//			console.log(12,self);
+//			console.log("del:",self.id);
+//			console.log("del:",self.name);
+//		}	
+//		//调用
+//		var m = new memberInfo();
+//		m.id = 101;
+//		m.name = "hehe";
+//		m.showMember();
+//		m.delMember();
+			
+//==============================================================================
+
+		//第六种方式
+//		$(document).ready(function(){
+//			//调用
+//			var m = new memberInfo();
+//			m.id = 101;
+//			m.name = "hehe";
+//			m.showMember();	
+//			m.delMember();
+//		});
+//		
+//		//注释
+//		function memberInfo(){
+//			this.id = 0;
+//			this.name = "";
+//		}
+//		memberInfo.prototype.showMember = function(){
+//			var self = this;
+//			console.log(11,self);
+//			console.log("show:",self.id);
+//			console.log("show:",self.name);
+//		}
+//		memberInfo.prototype.delMember = function(){
+//			var self = this;
+//			console.log(12,self);
+//			console.log("del:",self.id);
+//			console.log("del:",self.name);
+//		}	
+		
+//==============================================================================
+
+		//第七种 事件委托
+//		$(document).ready(function(){
+//			var m = new memberInfo();
+//			//委托
+//			$("#J-box").on("click",function(event){
+//				var e = window.event || e; //兼容IE7
+//				var obj = $(e.srcElement || e.target); //获取事件源
+//				if(obj.hasClass("J-btn-show")){
+//					m.id = 101;
+//					m.name = "hehe";
+//					m.showMember();
+//				}else if(obj.hasClass("J-btn-del")){
+//					m.id = 201;
+//					m.name = "xixi";
+//					m.delMember();
+//				}
+//				 
+//			})
+//		})
+//		
+//		//注释
+//		function memberInfo(){
+//			this.id = 0;
+//			this.name = "";
+//		}
+//		//注释
+//		memberInfo.prototype.showMember = function(){
+//			var self = this;
+//			console.log(11,self);
+//			console.log("show:",self.id);
+//			console.log("show:",self.name);
+//		}
+//		memberInfo.prototype.delMember = function(){
+//			var self = this;
+//			console.log(12,self);
+//			console.log("del:",self.id);
+//			console.log("del:",self.name);
+//		}	
+			
+//======================================================================================
+
+//    第八种，事件委托传事件源
+//		$(document).ready(function(){
+//			var m = new memberInfo();
+//			//委托
+//			$("#J-box").unbind("click");
+//			$("#J-box").on("click",function(event){
+//					var e = window.event || e; 
+//					var obj = $(e.srcElement || e.target); //获取事件源
+//					console.log(111,obj);
+//					if( obj.hasClass("J-btn-show")){ //显示
+//						m.showMember(obj); //把事件源传递出去
+//					}else if( obj.hasClass("J-btn-del") ){
+//						m.delMember(obj);
+//					}
+//			})
+//		})
+//		
+//		function memberInfo(){
+//			this.id = 0;
+//			this.name = "";
+//		}
+//		memberInfo.prototype.showMember = function(obj){
+//			var self = this;
+//			self.id = $(obj).attr("_id");
+//			self.name = $(obj).attr("_name");
+//			console.log("show:",self.id);
+//			console.log("show:",self.name);
+//		}
+//		memberInfo.prototype.delMember = function(obj){
+//			var self = this;
+//			self.id = $(obj).attr("_id");
+//			self.name = $(obj).attr("_name");
+//			console.log("show:",self.id);
+//			console.log("show:",self.name);
+//		}
+
+//============================================================================================
+
+//   第九种 ajax请求
+//		目前没看懂
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>

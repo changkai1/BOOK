@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<video src="video.mp4" id="J-video" controls="controls" width="100" height="200"></video><br/>
+		时长：<p id="J-p1"></p>
+		时长：<p id="J-p2"></p>
+		宽高：<p id="J-p3"></p>
+		宽高：<p id="J-p4"></p>
+	</body>
+</html>
+<script src="jquery-2.1.1.min.js"></script>
+<script>
+		//获取视频的时间
+		var v = document.getElementById("J-video");
+		v.onloadeddata = function(){ //在当前帧的数据可用时执行
+			var duration = v.duration; //获取视频时间
+			$("#J-p1").html(duration.toFixed(2));
+			$("#J-p3").html(v.videoWidth+"*"+v.videoHeight);
+		}
+		v.oncanplaythrough = function(){
+			var duration = v.duration; //获取视频时间
+			$("#J-p2").html(duration.toFixed(2));
+			$("#J-p4").html(v.videoWidth+"*"+v.videoHeight);
+		}
+</script>

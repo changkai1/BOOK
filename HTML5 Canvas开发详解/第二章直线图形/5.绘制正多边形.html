@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas" width=400 height=250 style="border:1px dashed gray"></canvas>
+</body>
+</html>
+<script>
+     function $$(id){
+        return document.getElementById(id);
+    }
+    var cnv = $$("canvas");
+    var cxt = cnv.getContext("2d");
+    // createPolygon(cxt,3,100,75,50);
+    // createPolygon(cxt,5,100,75,50);
+    createPolygon(cxt,6,100,75,50); 
+    cxt.fillStyle = "HotPink";
+    cxt.fill();
+
+    function createPolygon(cxt,n,dx,dy,size){  //n:表示多边形  dx/dy：表示n变形中心坐标   size:表示n变形的大小
+        cxt.beginPath();
+        var degree = (2*Math.PI)/n;
+        for(var i = 0; i < n; i++){
+            var x = Math.cos(i*degree);
+            var y = Math.sin(i*degree);
+            cxt.lineTo(x*size + dx,y*size + dy);
+        }
+        cxt.closePath();
+    }
+</script>

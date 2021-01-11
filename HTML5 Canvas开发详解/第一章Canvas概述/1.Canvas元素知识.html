@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+      
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="200" height="150" style="border:1px dashed gray"></canvas>
+</body>
+</html>
+<script>
+    // 1.获取canvas对象
+    var cnv = document.getElementById("canvas");
+    // 2.获取上下文环境对象context
+    var cxt = cnv.getContext("2d");
+    // 3.开始绘制图形
+    cxt.moveTo(50,100); //起点坐标
+    cxt.lineTo(150,50); //终点坐标
+    cxt.stroke();
+    var str = "canvas的宽度为:"+cnv.width+" canvas的高度为:"+cnv.height;
+    console.log(str);
+</script>

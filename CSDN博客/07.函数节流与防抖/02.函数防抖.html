@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" id="btn">
+    <input type="text" id="input">
+</body>
+</html>
+<script>
+
+     /*
+            节流和去抖区别
+　　    去抖和节流是不同的，因为节流虽然中间的处理函数被限制了，但是只是减少了频率，而去抖则把中间的处理函数全部过滤掉了，只执行规判定时间内的最后一个事件。
+     */ 
+    
+     // 简单的防抖动函数
+     function debounce(func, wait) {
+        let timeout = null;  // 定时器变量
+        return function() {
+            clearTimeout(timeout);             // 每次触发时先清除上一次的定时器,然后重新计时
+            timeout = setTimeout(func, wait);  // 指定 xx ms 后触发真正想进行的操作 handler
+        };
+    }
+    //事件处理程序
+    function realFunc(){
+        console.log("Success");
+    }
+
+    const input = document.getElementById('input');
+    input.addEventListener('keydown',debounce(realFunc,1000));
+
+
+
+
+    // var btn = document.getElementById("btn");
+    // btn.onclick = function (event) {
+    //     alert(event.type);      //'click'
+    // }
+
+
+
+</script>

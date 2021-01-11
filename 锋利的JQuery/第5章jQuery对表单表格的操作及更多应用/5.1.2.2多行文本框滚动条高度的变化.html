@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../script/jquery-1.11.3.js"></script>
+		<style>
+			textarea{
+				width:400px;
+				height:100px;
+			}
+		</style>
+	</head>
+	<body>
+		<form>
+			<div class="msg">
+				<div class="msg_caption">
+					<span class="bigger">放大</span>
+					<span class="smaller">缩小</span>
+				</div>
+				<div>
+					<textarea id="comment" rows="8" cols="20">
+ 多行文本框高度变化，多行文本框高度变化，多行文本框高度变化，多行文本框高度变化，多行文本框高度变化，多行文本框高度变化，多行文本框高度变化，多行文本框高度变化，多行文本框高度变化，多行文本框高度变化，
+					</textarea>
+				</div>
+			</div>
+		</form>
+	</body>
+	<script>
+		$(function(){
+			var $comment = $("#comment");
+			$(".bigger").click(function(){
+				if($comment.height() < 500 ){
+					$comment.animate({height:"+=50"},400);
+				}
+			})
+			$(".smaller").click(function(){
+				if($comment.height() > 50 ){
+					$comment.animate({height:"-=50"},400);
+				}
+			})
+		})
+		
+	</script>
+</html>

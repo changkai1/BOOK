@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    let fn1 = v => v;
+    console.log(fn1("箭头函数"));
+
+    let fn2 = function (v) {
+        return v;
+    }
+    console.log(fn2("普通函数"));
+
+    /*
+    1.箭头函数不能用于构造函数
+    2.箭头函数不能绑定arguments
+    3.箭头函数不能绑定this(箭头函数中的this指向的是定义时的this,而不是执行时的this。箭头函数没有自己的this，
+      其内部的this绑定到它外围作用域。对象内部的箭头函数若有this，则指向对象的外围作用域)
+    4.箭头函数无法使用call()或apply()来改变其运行的作用域
+    */
+    window.color = "red";
+    // let声明的全局变量不具有全局属性，即不能用window访问
+    let color = "green";
+    let obj = {
+        color:"blue",
+        getColor:() => {
+            return this.color;   //this指向的是window
+        }
+    };
+    let sayColor = () => {
+        return this.color;     // this指向window
+    };
+
+    console.log(obj.getColor()); // red
+    console.log(sayColor());     // red
+
+//*********************************************************
+    window.colors = "yellow";
+    let colors = "green";
+    let objs = {
+        colors:"blue"
+    }
+    let sayColors = () => {
+        return this.colors;
+    }
+    console.log( sayColors.apply(objs) );  // yellow  不能改变this的指向
+
+
+</script>

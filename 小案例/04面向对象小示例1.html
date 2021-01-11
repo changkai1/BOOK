@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="script/jquery-1.11.3.js"></script>
+	</head>
+	<body>
+	</body>
+	<script>
+			//原型模式
+			function CreatePerson(name,age){
+				this.name = name;
+				this.age = age;
+			}
+			CreatePerson.prototype.showName = function(){
+				console.log("我的名字是："+this.name);
+			}
+			var person1 = new CreatePerson("小明",25);
+			var person2 = new CreatePerson("小华",20);
+//			person1.showName() //小明
+			console.dir(person1);
+//			console.log(person1);
+			
+	</script>
+</html>

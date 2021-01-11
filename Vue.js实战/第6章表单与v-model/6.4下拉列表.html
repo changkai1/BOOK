@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../lib/vue.js"></script>
+</head>
+<body>
+    <!-- 
+        注意：option如果有value属性，v-model会优先匹配value值，
+             没有value属性，直接匹配option的text值，选中第二个时，匹配的是js，而不是javascript
+     -->
+    <div id="app">
+        <select v-model="selected">
+            <option>html</option>
+            <option value="js">javascript</option>
+            <option>css</option>
+        </select>
+        <p>选择的是：{{selected}}</p>
+    </div>
+
+    <!-- 下拉列表多选 -->
+    <div id="app1" >
+        <select v-model="selected1" multiple>
+            <option>html</option>
+            <option value="js">javascript</option>
+            <option>css</option>
+        </select>
+        <p>选择的是：{{selected1}}</p>
+    </div>
+
+    <!-- 循环输出option -->
+    <div id="app2">
+        <select v-model="selected">
+            <option v-for="item in option" :value="item.value">{{item.text}}</option>
+        </select>
+        <p>选择的是：{{selected}}</p>
+    </div>
+</body>
+</html>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            selected:"html"
+        },
+        methods:{
+           
+        }
+    })
+
+    new Vue({
+        el:"#app1",
+        data:{
+            selected1:["html","js"]
+        },
+        methods:{
+           
+        }
+    })
+
+    new Vue({
+        el:"#app2",
+        data:{
+            selected:"html",
+            option:[
+                {
+                    text:"HTML",
+                    value:"html"
+                },
+                {
+                    text:"JavaScript",
+                    value:"js"
+                },
+                {
+                    text:"CSS",
+                    value:"css"
+                }
+            ]
+        }
+    })
+
+
+
+
+
+
+
+
+
+
+
+</script>

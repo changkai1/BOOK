@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../lib/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 1.复选框，绑定的是布尔值 -->
+        <input type="checkbox" id="checkbox" v-model="checked">
+        <label for="checkbox">{{checked}}</label>
+        <br/>
+        <!-- 2.多个复选框 ，绑定的是value值，选中的值放入数组，可以侦听数组的变化-->
+        <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+        <label for="jack">Jack</label>
+        <input type="checkbox" id="john" value="John" v-model="checkedNames">
+        <label for="john">John</label>
+        <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+        <label for="mike">Mike</label>
+        <br>
+        <span>Checked names: {{ checkedNames }}</span>
+        <br/>
+        <!-- 3.单选按钮,picked绑定的是value值 -->
+        <input type="radio" id="one" value="11" v-model="picked">
+        <label for="one">One</label>
+        <br>
+        <input type="radio" id="two" value="22" v-model="picked">
+        <label for="two">Two</label>
+        <br>
+        <span>Picked: {{ picked }}</span>
+        <br/>
+        <!-- 4.下拉框单选 -->
+        <select v-model="selected">
+            <option disabled value="">请选择</option>
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+        </select>
+        <span>Selected: {{ selected }}</span>
+        <br/>
+        <!-- 5.下拉框多选,绑定到一个数组-->
+        <select v-model="sele" multiple style="width: 50px;">
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+        </select>
+        <br>
+        <span>Selected: {{ sele }}</span>
+        <br/>
+        <!-- 6. v-for动态渲染下拉框 -->
+        <select v-model="selectValue">
+            <option v-for="item in options" :value="item.value">
+                {{item.text}}
+            </option>
+        </select>
+        <span>绑定value值：{{selectValue}}</span>
+        <br/>
+        <!-- 7. 绑定单选框 绑定的是value值-->
+        <input type="radio" v-model="radios" value="a">
+        <span>{{radios}}</span>
+        <br/>
+        <!-- 8. 复选框 绑定的是布尔值-->
+        <input type="checkbox" v-model="toggle">
+        <span>{{toggle}}</span>
+        <br/>
+        <!-- 9. -->
+    </div>
+</body>
+</html>
+<script>
+    /*
+        select中的option有value值时,v-model绑定的是option的value值,没有value时，绑定的是option的值
+    */ 
+    new Vue({
+        el:"#app",
+        data:{
+            checked:false,
+            checkedNames:[],
+            picked:'',
+            selected:'',
+            sele:[],
+            options: [
+                { text: 'One', value: 'A' },
+                { text: 'Two', value: 'B' },
+                { text: 'Three', value: 'C' }
+            ],
+            selectValue:"A",
+            radios:'a',
+            toggle:true
+        },
+        watch:{
+            // 2. 可以侦听数组的变化
+            checkedNames:{
+                handler(){
+                    console.log(this.checkedNames)
+                },
+                deep:true
+            }
+        }
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../lib/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>总数：{{total}}</p>
+        <!-- v-model直接绑定一个数据total,这是一个语法糖，可以间接的使用自定义事件实现 -->
+        <my-component v-model="total"></my-component>
+    </div>
+</body>
+</html>
+<script>
+    Vue.component("my-component",{
+        template:`<button @click="handleClick">+1</button>`,
+        data () {
+            return{
+                counter:0
+            }
+        },
+        methods:{
+            handleClick () {
+                this.counter++;
+                this.$emit("input",this.counter);
+            }
+        }
+    })
+    new Vue({
+        el:"#app",
+        data:{
+            total:0
+        }
+    })
+
+
+
+
+
+
+
+
+
+
+</script>

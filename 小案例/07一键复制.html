@@ -1,0 +1,34 @@
+<!DOCTYPE html><html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>复制</title>
+<style type="text/css">
+body,td,th {
+	font-size: 12px;
+}
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+</style></head><body>
+<input type="button" id="cardList" value="一键复制" _data="mrev"><br>
+<input type="text" name="textfield" id="textfield">
+
+<script type="text/javascript">
+function copy(str,callback){
+	var save = function (e){
+		e.clipboardData.setData('text/plain',str);//下面会说到clipboardData对象
+		e.preventDefault();//阻止默认行为
+	}
+	document.addEventListener('copy',save);
+	document.execCommand("copy");//使文档处于可编辑状态，否则无效
+	if(callback){callback(str)};
+}
+document.getElementById('cardList').addEventListener('click',function(ev){	
+	var _txt = ev.target.getAttribute('_data');	
+	copy(_txt,function(str){alert('复制成功:'+str+'');});
+});
+</script></body></html>

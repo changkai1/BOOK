@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../lib/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 1. 动态组件
+                使用特殊的元素<component>动态的挂载不同的组件，
+                使用is特性来选择要挂载的组件。
+        -->
+        <component :is="currentView"></component>
+        <button @click="handleChangeView('A')">切换到A</button>
+        <button @click="handleChangeView('B')">切换到B</button>
+        <button @click="handleChangeView('C')">切换到C</button>
+    </div>
+</body>
+</html>
+<script>
+    var app = new Vue({
+        el: "#app",
+        components: {
+            comA: {
+                template: `<div>组件A</div>`
+            },
+            comB: {
+                template: `<div>组件B</div>`
+            },
+            comC: {
+                template: `<div>组件C</div>`
+            }
+        },
+        data: {
+            currentView: "comA"
+        },
+        methods: {
+            handleChangeView (component) {
+                this.currentView = "com" + component;
+            }
+        }
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>

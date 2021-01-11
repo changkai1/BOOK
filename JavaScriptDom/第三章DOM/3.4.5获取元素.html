@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<h1>What you buy</h1>
+		<p title="a gentle reminder">Dont forget to buy this stuff</p>
+		<ul id="purchases">
+			<li>A tin of beas</li>
+			<li class="sale">Cheese</li>
+			<li class="sale important">Milk</li>
+			<li class="sale import">nihao</li>
+		</ul>
+		
+		<script>
+			console.log(document.getElementById("purchases")); //输出ul这个对象
+			console.log(document.getElementsByTagName("li")); //[li, li.sale, li.sale.important] 数组里的每一个元素都是一个对象
+			console.log(document.getElementsByTagName("li").length); //3
+			
+			for( var i = 0 ; i < document.getElementsByTagName("li").length; i++){
+				console.log(11111,document.getElementsByTagName("li")[i]); //都是一个对象
+//				console.log(typeof document.getElementsByTagName("li")[i]); //object
+			}
+			
+			//文档里所有元素节点
+			console.log(document.getElementsByTagName("*"))
+			//文档里所有元素节点的长度
+			console.log(document.getElementsByTagName("*").length) //13
+			
+			//查看ul里的有多少个列表项
+			var shopping = document.getElementById("purchases");
+			var items = shopping.getElementsByTagName("*");
+			
+			for( var i = 0; i < items.length; i++){
+				console.log(items[i]); //输出li对象
+			}
+			
+			//输出包含类名为sale的所有元素,包含sale都输出来，是一个数组
+			console.log(document.getElementsByClassName("sale")); //[li.sale, li.sale.important]
+			console.log(document.getElementsByClassName("sale")[0]); //输出数组里的每一个对象
+		
+			//查找带有多个类名的元素，只需要在字符串参数中用空格分隔类名即可
+			console.log(document.getElementsByClassName("important sale"));//[li.sale.important] 数组里是一个对象
+			console.log(document.getElementsByClassName("important sale")[0]); //输出一个对象
+			
+			//找到ul里具有类名为sale的元素
+			var shop = document.getElementById("purchases");
+			var sales = shop.getElementsByClassName("sale");
+			for( var i = 0; i < sales.length; i++){
+				console.log(sales[i]);
+			}
+			
+			
+		</script>
+	</body>
+</html>

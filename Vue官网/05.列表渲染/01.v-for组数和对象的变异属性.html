@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../lib/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <!--1. v-for遍历数组 第二个参数是下标-->
+            <li v-for="(item,index) in message" v-bind:key="index">{{item.book}}---{{index}}</li>
+        </ul>
+
+        <!-- 2. v-for遍历对象的值 第一个参数是值，第二个参数是键名，第三个参数下标-->
+        <p v-for="(value,name,index) in object" v-bind:key="index">{{index}}--{{name}}：{{value}}</p>
+
+        <i v-for="item in num">{{item}}</i>
+
+        <h5 v-for="(value,key) in user">{{key}}：{{value}}</h5>
+    </div>
+</body>
+</html>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            message:[
+                {
+                    id:1,
+                    book:"<射雕英雄传>"
+                },
+                {
+                    id:2,
+                    book:"<天龙八部>"
+                }
+            ],
+            object:{
+                title: 'How to do lists in Vue',
+                author: 'Jane Doe',
+                publishedAt: '2016-04-10'
+            },
+            user:{
+                name:'laowang'
+            },
+            num:[1,2,3]
+        }
+    })
+    // 3. 变异方法，改变原数组
+    //  push() 后增  pop() 后删  unshift() 前增  shift() 前删  sort() 排序  reverse() 逆序
+    //  splice(start,length,new1,new2) 在任意位置增删改  第一个参数：从哪开始(下标)  第二个参数：删除多少个  第三、四个参数：新增的元素
+    // vm.message.push({id:1,book:"<笑傲江湖>"})
+    
+    // 4.非变异方法，不改变原数组，可以使用新数组替换原数组  filter() concat()  slice()
+    vm.message = vm.message.filter(function(item){
+        return item.id > 1;
+    })
+
+    /*
+        5.Vue 不能检测以下数组的变动
+            1、当你利用索引直接设置一个数组项时，例如：vm.items[indexOfItem] = newValue
+            2、当你修改数组的长度时，例如：vm.items.length = newLength
+    */ 
+    Vue.set(vm.num,2,5)
+    vm.$set(vm.num,1,4);
+    vm.num.splice(0,1,6);
+
+    vm.num.splice(2);  // 在下标为2的位置删除所有的元素
+
+    /*
+        6.Vue 不能检测对象属性的添加或删除,可以使用以下方法
+    */
+    //你可以添加一个新的 age 属性到嵌套的 user 对象
+    Vue.set(vm.user,"age",20)
+    vm.$set(vm.user,"like","足球")
+    
+    // 添加两个或多个响应式属性
+    vm.user = Object.assign({},vm.user,{
+        id:1,
+        adr:"北京"
+    })
+
+
+
+
+
+</script>

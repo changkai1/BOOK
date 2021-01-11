@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../script/jquery-1.11.3.js"></script>
+		<style>
+			
+		</style>
+	</head>
+	<body id="by">
+		<!--冒泡-->
+		<div id="content">
+			外层div元素
+			<span id="sp">内层span元素</span>
+			外层div元素
+		</div>
+		<div id="msg"></div>
+		
+		<!--阻止默认行为-->
+		<form action="test.html">
+			用户名：<input type="text" id="username"/><br/>
+			<input type="submit" value="提交" id="sub"/>
+		</form>
+		
+		
+	</body>
+	<script>
+//		1.什么是冒泡   单击span元素时,同时出发了div和body.并且每个元素都会按照特定顺序响应click事件
+//			$(function(){
+//				//为span元素绑定click事件
+//				$("span").bind("click",function(){
+//					var txt = $("#msg").html()+"<p>内层span元素被单击</p>";
+//					$("#msg").html(txt);
+//				});
+//				
+//				//为div元素绑定click事件
+//				$("#content").bind("click",function(){
+//					var txt = $("#msg").html()+"<p>外层div元素被单击</p>";
+//					$("#msg").html(txt);
+//				});
+//				
+//				//为body添加click事件
+//				$("body").bind("click",function(){
+//					var txt = $("#msg").html()+"<p>body元素被单击</p>";
+//					$("#msg").html(txt);
+//				});
+//			})
+		
+		
+		
+//		2.阻止事件冒泡   事件对象event,阻止事件冒泡 event.stopPropagation()
+	//		$(function(){
+	//			//为span元素绑定click事件
+	//			$("span").bind("click",function(event){
+	//				var txt = $("#msg").html()+"<p>内层span元素被单击</p>";
+	//				$("#msg").html(txt);
+	//				console.log(event);
+	//				event.stopPropagation();
+	//			});
+	//			
+	//			//为div元素绑定click事件
+	//			$("#content").bind("click",function(event){
+	//				var txt = $("#msg").html()+"<p>外层div元素被单击</p>";
+	//				$("#msg").html(txt);
+	//				event.stopPropagation(); //阻止冒泡
+//					return false; //简写形式
+	//			});
+	//			
+	//			//为body添加click事件
+	//			$("body").bind("click",function(){
+	//				var txt = $("#msg").html()+"<p>body元素被单击</p>";
+	//				$("#msg").html(txt);
+	//			});
+	//		})
+		
+		
+//		3.阻止默认行为  元素自己的默认行为  event.preventDefault()
+//				$("#sub").bind("click",function(event){
+//					var username = $("#username").val();
+//					if(username == ""){
+//						$("#msg").html("<p>文本框不能为空</p>");
+////						event.preventDefault(); //阻止表单 提交
+//							return false;  //简写形式
+//					}
+//				})
+				
+				
+//		4.事件捕获  事件捕获是从最顶端往下开始触发  jq不支持事件捕获
+//				var by = document.getElementById("by");
+//				var sp = document.getElementById("sp");
+//				var con = document.getElementById("content");
+//				var msg = document.getElementById("msg");
+//				by.addEventListener("click",function(event){
+//					var txt = msg.innerHTML+"<p>body元素被单击</p>";
+//					msg.innerHTML = txt;
+//				},true);
+//					
+//				con.addEventListener("click",function(event){
+//					var txt = msg.innerHTML+"<p>外层div元素被单击</p>";
+//					msg.innerHTML = txt;
+//				},true);
+//				
+//				sp.addEventListener("click",function(event){
+//					var txt = msg.innerHTML+"<p>内层span元素被单击</p>";
+//					msg.innerHTML = txt;
+//				},true);
+
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+			
+		
+	</script>
+</html>

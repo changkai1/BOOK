@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas" width=400 height=250 style="border:1px dashed gray"></canvas>
+    <input type="button" value="清除canvas" id="btn">
+</body>
+</html>
+<script>
+    function $$(id){
+        return document.getElementById(id);
+    }
+    // 1.删除矩形
+    var cnv = $$("canvas");
+    var cxt = cnv.getContext("2d");
+    cxt.fillStyle = "HotPink";
+    cxt.fillRect(50,50,80,80);
+    cxt.clearRect(60,60,50,50);
+
+    // 2.点击按钮删除矩形
+    var cnv = $$("canvas");
+    var btn = $$("btn");
+    var cxt = cnv.getContext("2d");
+    cxt.fillStyle = "HotPink";
+    cxt.fillRect(50,50,80,80);
+    btn.onclick = function(){
+        // console.log(cnv.width)
+        // console.log(cnv.height)
+        cxt.clearRect(0,0,cnv.width,cnv.height); //清除整个canvas
+    }
+
+
+
+
+
+
+</script>

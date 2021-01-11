@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../lib/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div v-for="book in books">
+            <p>书名：{{book.name}}</p>
+            <p>作者：{{book.author}}</p>
+            <hr/>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    /*
+        Vue包含了一组观察数组变异的方法，使用他们改变数组也会触发视图更新
+        push()    数组尾部添加元素
+        pop()     数组尾部删除元素
+        unshift() 数组头部添加元素
+        shift()   数组尾部删除元素
+        splice(start,length,new1,new2..)  在数组的任意位置添加、删除、修改元素
+               start:从哪开始(下标)
+               length:删除多少个
+               new1,new2::新增的元素
+        sort(function(a,b){return a-b})   数字从小到大排
+        sort(function(a,b){return b-a})   数字从大到小排
+
+        filter() concat() slice() 不会改变原数组，不会触发试图更新，可以使用新数组替换原数组，触发更新
+    */
+    var app = new Vue({
+        el:"#app",
+        data:{
+            books:[
+                {
+                    name:"《vue.js实战》",
+                    author:"梁灏"
+                },
+                {
+                    name:"《JavaScript语言精粹》",
+                    author:"Douglas Crockford"
+                },
+                {
+                    name:"《JavaScript高级程序设计》",
+                    author:"Nicholas C.Zakas"
+                }
+            ]
+        }
+    })
+    // 1.改变数组数据也可以更新
+    // app.books.push({
+    //     name:"《CSS揭秘》",
+    //     author:"[希] Lea Verou"
+    // })
+
+    // 2.filter()  新数组替换元素组触发更新
+    // app.books = app.books.filter(function(item){
+    //     return item.name.match(/JavaScript/);
+    // })
+
+    // 3.通过索引直接设置不会触发视图更新
+    // app.books = app.books[3] = {
+    //     name:"《CSS揭秘》",
+    //     author:"[希] Lea Verou"
+    // }
+
+    //4.可以使用Vue内置的set方法,  第二个参数是下标，增加的位置
+    // Vue.set(app.books,3,{
+    //     name:"《CSS揭秘》",
+    //     author:"[希] Lea Verou"
+    // })
+
+   // 5.在非webpack模式下可以使用$set方法
+   app.$set(app.books,3,{
+        name:"《CSS揭秘》",
+        author:"[希] Lea Verou"
+    })
+
+
+
+
+
+
+
+</script>

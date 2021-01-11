@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>3.1.2外边距叠加</title>
+		<style>
+			*{margin:0;padding:0;}
+			.box1{
+				width:100px;
+				height:100px;
+				background:red;
+				margin-bottom:30px;
+			}
+			.box2{
+				width:100px;
+				height:100px;
+				background:blue;
+				margin-top:20px;
+				display:inline-block;
+			}
+			/*.bfc{
+				overflow: hidden;
+			}*/
+			.box3{
+				width:200px;
+				height:200px;
+				background:green;
+				margin-top:30px;
+			}
+			.box3 .box4{
+				width:100px;
+				height:100px;
+				background:pink;
+			}
+			
+			
+			.top, .bottom {
+		    width: 100px;
+		    height: 100px;
+		    background: red;
+			}
+			
+			.bottom {
+			   background: yellow;
+			}
+			.middle {
+		    margin-top: 30px;
+		    margin-bottom: 30px;
+		    border-top: 1px solid transparent;
+			}
+		</style>
+	</head>
+	<body>
+		<!--当一个元素出现在另一个元素上面时，第一个元素的底外边距与第二个元素的顶外边距发生叠加
+				这个外边距的高度等于两个发生叠加的外边距的高度中的较大者
+				解决方法： 1、在套一层div，设置为overflow:hiden
+							  2、设置为display:inline-block;
+		-->
+		<div class="box1">box1</div>
+		<!--<div class="bfc">
+			<div class="box2">box2</div>			
+		</div>-->
+		<div class="box2">box2</div>
+		
+<!------------------------------------------------------------------------------------------------->		
+		
+	
+	<!--当一个元素包含在另一个元素中时，他们的顶外边距会发生叠加,
+		解决办法： 1、父元素添加overflow:hidden
+					  2、父元素使用padding调间距
+	-->
+		<div class="box3">
+			<div class="box4">box4</div>
+		</div>
+		
+	
+<!----------------------------------------------------------------------------------------------------->	
+
+		<!--自身发生叠加
+			如果一个元素，margin-bottom 和 marginp-top之间没有内容，相互接触的话，他们也会叠加
+			发现上 和 下两个元素只有30px边距，说明，middle自己的 margin-top和marign-bottom发生了叠加，如何解决呢， 让他们不接触即可
+			解决办法：1、给middle添加一个空白的边框border-top: 1px solid transparent;
+		-->
+		<div class="top"></div>
+    <div class="middle"></div>
+    <div class="bottom"></div>
+			
+		
+		
+	</body>
+</html>

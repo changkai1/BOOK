@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../script/jquery-1.11.3.js"></script>
+	</head>
+	<body>
+		<p title="选择你最喜欢的水果" class="hehe xixi"><strong>你最喜欢的水果是？</strong></p>
+		<ul>
+			<li title="苹果">苹果</li>
+			<li title="橘子">橘子</li>
+			<li title="菠萝">菠萝</li>
+		</ul>
+		<p class="another">我想说：</p>
+		<!--<input type="button" value="切换样式" class='btn'/>-->
+		
+		<!--val()方法使用-->
+		<select id="single">
+			<option>选择1号</option>
+			<option>选择2号</option>
+			<option>选择3号</option>
+		</select>
+		<select id="multiple" multiple="multiple" style="height:120px;">
+			<option selected="selected">选择1号</option>
+			<option>选择2号</option>
+			<option>选择3号</option>
+			<option>选择4号</option>
+			<option selected="selected">选择5号</option>	
+		</select>
+		<input type="checkbox" value="check1"/>多选1
+		<input type="checkbox" value="check2"/>多选2
+		<input type="checkbox" value="check3"/>多选3
+		<input type="checkbox" value="check4"/>多选1
+		<input type="radio" value="radio1"/>单选1
+		<input type="radio" value="radio2"/>单选2
+		<input type="radio" value="radio3"/>单选3
+		
+		
+	</body>
+	
+	<script>
+//				3.2.5复制节点 clone()
+//						$("ul li").click(function(){
+//							$(this).clone().appendTo("ul");   //复制当前点击的节点，并追加到ul元素中，复制的节点并不具有任何行为
+//						})
+								
+//					  clone(true)  复制元素的同时复制元素中所绑定的事件,复制的元素同样具有复制的功能
+//						$("ul li").click(function(){
+//							$(this).clone(true).appendTo("ul");
+//						})
+		
+//=========================================================================================================================
+				
+//				3.2.6替换节点
+//					1.replaceWith()  //将所有匹配的元素都替换成指定的html或者DOM元素
+//						$("p").replaceWith("<b>你最不喜欢的水果是</b>"); //<b>你最不喜欢的水果是</b>
+		
+//						replaceAll() 用法同上
+//						$("<b>你最不喜欢的水果是</b>").replaceAll("p");
+		
+//===========================================================================================================================
+
+//				3.2.7 包裹节点  将某个节点用其他标签包裹起来
+//						1.wrap()  将所有匹配的元素进行单独的包裹
+//							$("p").wrap("<b></b>"); //<b><p>我想说：</p></b>  用b标签把p包裹起来
+							
+//						2.wrapAll()  将所有的匹配元素用一个标签包裹起来
+//							$("p").wrapAll("<b></b>"); //<b><p title="选择你最喜欢的水果">你最喜欢的水果是？</p><p>我想说：</p></b>  两个元素不挨着时，会移动位置
+							
+//						3.wrapInner()  将每一个匹配的元素的子内容(包括文本节点)用其他标签包裹起来(单独包裹)
+//							$("p").wrapInner("<b></b>");  //<p><b>我想说：</b></p<p><b>我想说：</b></p
+		
+//======================================================================================================================================
+
+//				3.2.8属性操作
+//						1.获取属性和设置属性  attr()
+//							var p_txt = $("p").attr("title"); //获取p元素的属性  始终只能获取到第一个p元素的
+//							console.log(p_txt); //选择你最喜欢的水果
+							
+//							为p元素设置属性值,一个或多个
+//							$("p").attr("title","your title"); //设置当个属性值
+//							$("p").attr({"title":"your title","name":"test"}); //为p元素设置多个属性，用对象的方式
+							
+//						2.删除属性	removeAttr()				
+//							$("p").removeAttr("title"); //删除p元素的属性title
+	
+//=========================================================================================================================================
+
+//					3.2.9 样式操作
+//						1.设置样式	
+//							attr() 设置 class时,每次设置都会覆盖原来的样式
+//							addClass() 追加样式,不会覆盖原来已有的样式
+//							$("p").attr("class","higt"); //<p title="选择你最喜欢的水果" class="higt">你最喜欢的水果是？</p>
+//							$("p").addClass("anthor");  //在原有的基础上追加样式，不会覆盖原有的  <p title="选择你最喜欢的水果" class="hehe anthor">你最喜欢的水果是？</p>
+				
+//						3.移除样式
+//							removeClass() 从匹配的元素中删除全部或者指定的class
+//								$("p").removeClass("hehe"); //移除class中的hehe  移除一个
+//								$("p").removeClass("hehe xixi"); //移除多个，中间用空格隔开
+//								$("p").removeClass(); //同样可以移除全部class值，不带参数
+	
+//						4.切换样式
+//								toggleClass() 控制样式重复切换，如果类名存在则删除它，如果类名不存在就添加它
+//								$("p").toggleClass("another"); //重复切换类名
+//								$(".btn").click(function(){
+//									$("p").toggleClass("another");
+//								})
+					
+//						5.判断是否还有某个样式
+//							hasClass() 判断元素中是否含有某个class,如果有赶回true,没有返回false
+//								console.log($("P").hasClass("xixi"));  //true  p元素中是否含有class名xixi  
+//								console.log($("p").is(".hehe"));  //此方法同上
+
+//===============================================================================================================================================================
+
+//						3.2.10 设置和获取HTML 文本和值
+//								1.html() 方法   读取或设置某个元素中的HTML内容
+//									var p_html = $("p").html(); //获取p元素的html代码
+//									console.log(p_html); //<strong>你最喜欢的水果是？</strong>
+							
+//									$("p").html("<b>heheh</b>"); //<p title="选择你最喜欢的水果" class="hehe xixi"><b>heheh</b></p>
+										
+//								2.text() 方法  读取或设置某个元素中的文本内容
+//									var p_text = $("p").text();
+//									console.log(p_text);  //你最喜欢的水果是？我想说： 输出p元素的文本内容
+	
+//									$("p").text("我在学习jq"); //两个p元素的文本内容都会改变
+	
+//								3.val() 方法  
+//									    可以用来设置和获取元素的值,文本框 下拉列表 单选框,如果是多选框,返回一个包含所有选择的值的数组
+//										focus() 处理获得焦点时的事件    blur() 处理失去焦点时的事件     this.defaultValue 当前文本框的默认值
+//										$("#single").val("选择2号"); //第一个下拉列表第二项默认选中
+	
+										//使用val()方法 选中单选框和复选框时，使用数组赋值
+	//									$("#multiple").val(["选择2号","选择3号"]); //第二项和第三项同时被选中，用数组赋值
+	//									$(":checkbox").val(["check2","check3"]); //选中第二个和第三个复选框，使用数组赋值
+	//									$(":radio").val(["radio1"]); //第一个单选框默认选中
+	
+										//还可以使用sttr()方法来实现
+	//									$("#single option:eq(1)").attr("selected",true); //设置属性selected
+	//									$(":radio[value=radio2]").attr("checked",true); //value=radio2的单选框被选中
+									
+
+
+										
+										
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+	</script>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../lib/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <my-component>
+            <!-- 具名slot -->
+            <h2 slot="header">标题</h2>
+            <p>分发的内容</p>
+            <p>更多分发的内容</p>
+            <div slot="footer">底部信息</div>
+        </my-component>
+    </div>
+</body>
+</html>
+<script>
+    // 父组件没有使用slot时，会默认渲染子组件的slot内容
+    Vue.component("my-component",{
+        template:`
+            <div>
+                <div class="header">
+                    <slot name="header"></slot>
+                </div>
+                <div class="main">
+                    <slot>
+                        <p>子组件内容</p>
+                    </slot>
+                </div>
+                <div class="footer">
+                    <slot name="footer"></slot>
+                </div>
+            </div>
+        `,
+        mounted () {
+            // 通过 $slots 可以访问某个具名slot, 
+            // this.$slots.default 包括了所有没有被包含在具名slot中的节点。
+            var header = this.$slots.header;
+            var head = this.$slots.header[0].elm.innerHTML;
+            var main = this.$slots.default; // 获取匿名slot
+            var footer = this.$slots.footer;
+            console.log(1,header);
+            console.log(2,head);
+            console.log(3,main)
+        }
+    })
+    var app = new Vue({
+        el: "#app",
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>

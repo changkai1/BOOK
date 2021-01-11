@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		时间: <input type="text"  id="time"/>秒
+		<select name="" id="selecttime">
+			<option value="0">--请选择--</option>
+			<option value="1">2小时</option>
+			<option value="2">1小时</option>
+			<option value="3">30分钟</option>
+			<option value="4">20分钟</option>
+			<option value="5">10分钟</option>
+			<option value="6">5分钟</option>
+		</select>
+	</body>
+	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+	<script>
+		 $("#selecttime").change(function(){
+			var num = String($("#selecttime").val());
+			switch(num){
+				case "0":$("#time").val("");break;
+				case "1":$("#time").val(7200);break;
+				case "2":$("#time").val(3600);break;
+				case "3":$("#time").val(1800);break;
+				case "4":$("#time").val(1200);break;
+				case "5":$("#time").val(600);break;
+				case "6":$("#time").val(300);break;
+			}
+			$("#selecttime").val(0);
+		});
+	</script>
+</html>

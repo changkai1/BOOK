@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../script/jquery-1.11.3.js"></script>
+	</head>
+	<body>
+		<!--例子1 原生方法获取元素，添加事件-->
+		<p>测试1</p>
+		<p>测试2</p>
+		
+		<!--例子2 各行变色-->
+		<table id="tb">
+			<tr><td>第一行</td><td>第一行</td></tr>
+			<tr><td>第二行</td><td>第二行</td></tr>
+			<tr><td>第三行</td><td>第三行</td></tr>
+			<tr><td>第四行</td><td>第四行</td></tr>
+			<tr><td>第五行</td><td>第五行</td></tr>
+			<tr><td>第六行</td><td>第六行</td></tr>
+		</table>
+		
+		<!--例子3 对多选框进行操作，输出选中的多选框的个数-->
+		<input type="checkbox" value="1" name="check" checked/>
+		<input type="checkbox" value="2" name="check"/>
+		<input type="checkbox" value="3" name="check" checked/>
+		<input type="button" value="你选中的个数" id="btn"/>
+		
+	</body>
+	
+	<script>
+		//例子1：原生方法获取元素，添加事件  
+		var items = document.getElementsByTagName("p");
+//		console.log(items[0]); //获取到的是整个p标签 <p>测试1</p>
+		for( var i = 0; i < items.length; i++){
+			items[i].onclick = function(){
+				alert(1111);
+			}
+		}
+		//jq方法获取元素，添加事件
+		$("p").click(function(){
+			alert(222);
+		})
+		
+		
+
+		//例子2：各行变色
+		//思路：tr元素的索引值除以2并取模，然后根据奇偶设置不同的背景色
+		var item = document.getElementById("tb");
+		var tbody = item.getElementsByTagName("tbody")[0];
+		var trs = tbody.getElementsByTagName("tr");
+		for( var i = 0 ; i < trs.length; i++ ){
+			if(i%2 == 0){
+				trs[i].style.backgroundColor = "#888";
+			}
+		}
+		
+		//jq方法
+//		$("#tb tr:even").css("background","red");
+		
+		
+		
+		//例子3：对多选框进行操作，输出选中的多选框的个数
+		//思路：循环判断多选框是否被选中，如果选中则添加到数组里，输出数组长度即可
+//		var btn = document.getElementById("btn");
+//		btn.onclick = function(){
+//			var items = document.getElementsByName("check"); //获取name为check的所有元素
+//			var arr = [];
+//			for( var i = 0; i < items.length; i++){
+//				if(items[i].checked){
+//					arr.push(items[i].value)
+//				}
+//			}
+//			alert("选中的个数为："+arr.length);
+//		}
+		
+		//jq方法
+		$("#btn").click(function(){
+			var length = $("input[name=check]:checked").length;
+			alert("选中的个数为"+length);
+		})
+	</script> 
+</html>

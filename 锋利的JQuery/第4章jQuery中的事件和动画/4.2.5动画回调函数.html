@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../script/jquery-1.11.3.js"></script>
+		<style>
+			#panel{
+				position:relative;
+				width:100px;
+				height:100px;
+				background:skyblue;
+				border:1px solid red;
+				cursor:pointer;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="panel">
+			正在学习jquery
+		</div>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+			<li>6</li>
+		</ul>
+		
+	</body>
+	<script>
+//				4.2.5动画回调函数
+
+						$("#panel").css("opacity","0.5"); //设置透明度为0.5；
+						$("#panel").click(function(){
+							$(this).animate({left:"400px",height:"200px",opacity:"1"},3000)
+										 .animate({top:"200px",width:"200px"},3000,function(){
+										 	 	$(this).css("border","5px solid red");										 	
+										 })
+						})
+		
+	</script>
+	
+</html>

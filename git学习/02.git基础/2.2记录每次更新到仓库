@@ -1,0 +1,47 @@
+untracked   未追踪
+unmodified  不改变的
+modified    修改
+staged      已暂存
+
+1、Changes to be committed:        已暂存状态
+   Changes not staged for commit   说明已跟踪文件的内容发生了变化，但还没有放到暂存区。
+
+2、git diff --staged  查看已暂存的将要添加到下次提交里的内容
+   git diff  只显示尚未暂存的改动，而不是自上次提交以来所做的所有改动
+
+3、rm index.html  删除为放到暂存区的文件(即未git add的文件) 或 放到暂存区的文件(git status后可以看见删除记录)
+   对于放到暂存区的文件 然后运行 git rm index.html  删除被git管理的删除记录
+   
+   git rm -f index.html 删除暂存区的文件，并删除被git管理的删除文件记录
+
+4、git mv join.html join   对执行(git add)的文件重命名
+   
+   // 三条命令和上面一条命令等价
+   mv join.html join
+   git rm join.html
+   git add join
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

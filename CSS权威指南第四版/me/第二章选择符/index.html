@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			/*两个图片都可以匹配到*/
+			a[href] img:only-of-type{
+				border:2px solid red;
+			}
+			
+			div p:first-child{
+				color:red;
+			}
+			div p:last-child{
+				color:green;
+			}
+			div span:last-of-type{
+				font-size:40px;
+			}
+			div b:first-of-type{
+				background:#00FFFF;
+			}
+			a[href *= "http"]:active{
+				background:yellow;
+			}
+			input:focus{
+				height:30px;
+			}
+			input:disabled{
+				background:red;
+			}
+			input:enabled{
+				border:4px solid red;
+			}
+			input:checked{
+				background:#000000;
+			}
+			p:last-of-type::first-line{
+				color:darkgreen;
+			}
+			div:last-of-type::first-letter{
+				font-size:200%;
+			}
+			h2::before{
+				content:"]]";
+				color:skyblue;
+			}
+			h3::after{
+				content:"the end";
+				color:yellowgreen;
+			}
+			*{
+				color:red;
+			}
+			h1.page-title{
+				color:blue;
+			}
+		</style>
+	</head>
+	<body>
+		<a href="#"><b>1</b><img src="1.jpg" alt="" /></a>
+		<a href="#"><span><b>2</b><img src="1.jpg" alt="" /></span></a>
+		<a href="http://www.baidu.com">百度</a>
+		<div>
+			<p>1</p>
+			<p>2</p>
+			<p>3</p>
+			<p>4</p>
+			<span>5</span>
+			<b>6</b>
+			<span>7</span>
+			<b>8</b>
+		</div>
+		<input type="text" disabled="disabled"/>
+		<input type="text" enabled="enabled"/>
+		<input type="checkbox" checked="checked"/>复选框
+		
+		<p>装饰首字母装饰首字母装饰首字母装饰首字母装饰首字母装饰首字母装饰首字母装饰首字母装饰首字母装饰首字母装饰首字母装饰首字母装饰首字母装饰首字母</p>
+		<div>非行内样式</div>
+		<h2>前置内容</h2>
+		<h3>后置内容</h3>
+		
+		<h1 class="page-title">通用选择符和<em>特制度</em></h1>
+		
+	</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../lib/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 1.style的对象语法，css属性名可以用驼峰式或短横线分隔写法(短横线写法需要用引号括起来) -->
+        <div v-bind:style="{color:activeColor, 'font-size': fontSize + 'px', backgroundColor:color}">style的对象语法</div>
+
+        <!-- 2.直接绑定对象，更直观清晰 -->
+        <div v-bind:style="styleObject">style直接绑定对象</div>
+
+        <!-- 3.数组语法 -->
+        <div v-bind:style="[baseStyle, overridingStyles]">style的数组语法</div>
+    </div>
+</body>
+</html>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            activeColor:"red",
+            fontSize:30,
+            color:"blue",
+            styleObject:{
+                color:"green",
+                fontSize:"20px",
+                backgroundColor:"yellow"
+            },
+            baseStyle:{
+                color:"red"
+            },
+            overridingStyles:{
+                fontSize:"30px",
+                background:"blue"
+            }
+        }
+    })
+
+
+
+
+
+
+
+</script>

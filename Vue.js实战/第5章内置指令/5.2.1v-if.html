@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../lib/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <template v-if="status == 1">
+            <p>这是一段文本</p>
+            <p>这是一段文本</p>
+            <p>这是一段文本</p>
+        </template>
+    </div>
+
+    <!-- Vue在渲染元素时，出于效率考虑，会尽可能的复用已有的元素而非重新渲染 -->
+    <div id="myApp">
+        <template v-if="type === 'name'">
+            <label>用户名</label>
+            <input type="text" placeholder="输入用户名" key="name-input"><br/>
+        </template>
+        <template v-else>
+            <label>邮箱</label>
+            <!-- 1.添加key属性，可以不被复用input文本框，key值唯一 -->
+            <input type="text" placeholder="输入邮箱" key="mail-input"><br/>
+        </template>
+        <button @click="handleToggleClick">切换输入类型</button>
+    </div>
+</body>
+</html>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            status:1
+        }
+    })
+
+
+
+    new Vue({
+        el:"#myApp",
+        data:{
+            type:"name"
+        },
+        methods:{
+            // 切换时复用了文本框，如果不想复用可以增加key属性,key的值必须是唯一的
+            handleToggleClick(){
+                this.type = this.type === "name" ? "mail" : "name"
+            }
+        }
+    })
+
+
+
+
+
+
+
+
+
+
+
+</script>

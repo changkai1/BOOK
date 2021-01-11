@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../lib/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- <my-component>
+            <div slot-scope="items">
+                <p>来自父组件的内容</p>
+                <p>{{items.msg}}</p>
+            </div>
+        </my-component> -->
+        <my-list :books="books">
+            <template slot="book" scope="items">
+                <li>{{items.bookName}}</li>
+            </template>
+        </my-list>
+    </div>
+</body>
+</html>
+<script>
+    // Vue.component("my-component",{
+    //     template: `
+    //         <div>
+    //             <slot msg="来自子组件的内容"></slot>
+    //         </div>
+    //     `
+    // });
+    Vue.component("my-list",{
+        props: {
+            books:{
+                type: Array,
+                default: function () {
+                    return [];
+                }
+            }
+        },
+        template:`
+            <ul>
+                <slot name="book" 
+                      v-for="book in books" 
+                      :book-name="book.name">
+                </slot>
+            </ul>
+        `
+    })
+    var app = new Vue({
+        el: "#app",
+        data: {
+            books: [
+                {name: "《Vue.js实战》"},
+                {name: "《语言精粹》"},
+                {name: "《高级程序设计》"}
+            ]
+        }
+    })
+
+
+
+
+
+
+
+
+
+
+
+</script>

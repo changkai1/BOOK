@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" id="btn" value="按钮">
+    <input type="text" value="123455" id="textValue">
+    <input type="text">
+</body>
+</html>
+<script>
+        // 复制，可以使用input，隐藏
+        let btn = document.getElementById('btn');
+        let textValue = document.getElementById('textValue');
+        btn.onclick = function() {
+            if (textValue.value !== '') {
+                textValue.select();
+                document.execCommand('Copy'); // 执行浏览器复制命令
+            }
+        }
+
+
+
+
+
+
+
+</script>

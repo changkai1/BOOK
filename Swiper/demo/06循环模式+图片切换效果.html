@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" href="../css/swiper.min.css" />
+		<style>
+			*{margin:0;padding:0;}
+			
+			.swiper-container{
+				border:1px solid red;
+				width:500px;
+				height:300px;
+			}
+			.swiper-slide{
+				
+				
+			}
+			.swiper-slide img{
+				width: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="swiper-container">
+		  <div class="swiper-wrapper">
+		    <div class="swiper-slide"><img src="images/pic003.gif" alt="" /></div>
+		    <div class="swiper-slide"><img src="images/pic004.gif" alt="" /></div> 
+		    <div class="swiper-slide"><img src="images/pic005.gif" alt="" /></div>
+		    <div class="swiper-slide"><img src="images/pic006.jpg" alt="" /></div>
+		    <div class="swiper-slide"><img src="images/pic007.gif" alt="" /></div>
+  		</div>
+  		<!--分页器-->
+  		<div class="swiper-pagination"></div><!--分页器。如果放置在swiper-container外面，需要自定义样式。-->
+			
+				
+			<!--滚动条-->
+			<!--<div class="swiper-scrollbar"></div>  <!--为Swiper增加滚动条-->-->
+       <!--添加左右按钮-->                                        
+      <div class="swiper-button-prev swiper-button-white"></div><!--左箭头。如果放置在swiper-container外面，需要自定义样式。-->
+    	<div class="swiper-button-next swiper-button-black"></div><!--右箭头。如果放置在swiper-container外面，需要自定义样式。-->                          	
+                                                 
+		</div>
+		
+		
+		
+		
+		<script src="../js/swiper.min.js"></script>
+		<script>
+			var mySwiper = new Swiper('.swiper-container',{
+				pagination: {
+			    el: '.swiper-pagination', //分页
+			    clickable :true //点击分页器的指示点分页器会控制Swiper切换
+			 },
+				grabCursor:true,//设置为true时，鼠标覆盖Swiper时指针会变成手掌形状，拖动时指针会变成抓手形状
+			  navigation: { //左右按钮
+		      nextEl: '.swiper-button-next',
+		      prevEl: '.swiper-button-prev'
+		   },
+			 loop : true, //循环模式
+			 effect : 'cube', // 切换效果
+			})
+			
+		</script>
+	</body>
+</html>

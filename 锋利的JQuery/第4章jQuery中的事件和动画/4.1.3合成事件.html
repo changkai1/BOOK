@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../script/jquery-1.11.3.js"></script>
+		<style>
+			.content{
+				display:none;
+			}
+			.highlight{
+				background:blue;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="panel">
+			<h5 class="head">什么是jQuery？</h5>
+			<div class="content">
+				jquery是继prototype之后又一个优秀的javascript库。
+			</div>
+		</div>
+	</body>
+	<script>
+//		1.hover() 方法  当鼠标移动到元素上时，会触发第一个函数(enter),当鼠标移除这个元素时，会触发指定的第二个函数(leave)
+//				$(function(){
+//					$("#panel h5.head").hover(function(){
+//						$(this).next("div.content").show();
+//					},function(){
+//						$(this).next("div.content").hide();
+//					});
+//				});
+		
+//			2.表头高亮显示 添加一个class高向显示的类
+				$(function(){
+					$("#panel h5.head").hover(function(){
+						$(this).addClass("highlight");
+						$(this).next("div.content").show();
+					},function(){
+						$(this).removeClass("highlight");
+						$(this).next("div.content").hide();
+					});
+				});
+		
+				
+		
+		
+		
+		
+		
+		
+		
+		
+	</script>
+</html>

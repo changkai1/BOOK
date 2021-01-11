@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../script/jquery-1.11.3.js"></script>
+		<style>
+			/**{margin:0;padding:0;}*/
+			p{
+				color:blue;
+				height:150px;
+				width:100px;
+				border:1px solid red;
+				overflow:auto;
+			}
+		</style>
+	</head>
+	<body>
+		<p>正在学习jquery正在学习jquery正在学习jquery正在学习jquery正在学习jquery正在学习jquery正在学习jquery正在学习jquery正在学习jquery正在学习jquery正在学习jquery正在学习jquery正在学习jquery正在学习jquery正在学习jquery</p>
+		<input type="button" class="btn" value="获取滚动条距离"/>
+	</body>
+	<script>
+		//CSS-DOM操作
+	//		$color = $("p").css("color"); //获取p元素的颜色
+	//		console.log($color);  //rgb(0, 0, 255)
+			
+	//		$("p").css("color","red"); //设置p元素的颜色为红色
+	
+	//		$("p").css({"background":"#888","font-size":"20px"}); //同时设置多个样式
+	
+	//		$("p").css("opacity","0.5"); //设置透明度
+	
+	//		height() 获取元素的高度，在页面中的实际高度，与样式设置无关，并且不带单位
+	//		console.log($("p").height()); // 30  height() 获取p元素的高度，没有单位
+	
+	//		console.log($("p").css("height")); //30px 获取的高度有单位
+			 
+	//		$("p").height(50); //设置p元素的高度为50px;默认单位是px;单位可以不用写
+	//		$("p").css("height","100px");
+		
+//====================================================================================================
+
+//		1.offset() 方法  获取元素在当前视窗的相对偏移，返回的对象包含两个属性，top和left，只对可见元素有效
+//				var $offset = $("p").offset();  //获取p元素的offset()
+//				console.log($offset); //{top: 16, left: 8} 返回两个属性  top/left,不带单位
+//				console.log($offset.top);
+//				console.log($offset.left);
+
+//		2.position() 方法 
+//				获取元素相对于最近一个position样式属性设置为relative或者absolute的父节点的相对偏移，返回值top和left
+
+//		3.scrollTop() 和 scrollLeft() 获取元素的滚动条距顶端的距离和距左侧的距离
+				$(".btn").click(function(){
+					$("p").scrollTop(30) //控制滚动条滚动到指定位置
+					console.log($("p").scrollTop());
+					console.log($("p").scrollLeft());
+				})
+			
+		
+
+			
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</script>
+</html>
